@@ -39,8 +39,9 @@ class SimpleCard extends StatefulWidget {
   final String header;
   final String subHeader;
   final String image;
+  final Widget child;
 
-  SimpleCard({this.header, this.subHeader, this.image});
+  SimpleCard({this.header, this.subHeader, this.image, this.child});
   @override
   _SimpleCardState createState() => _SimpleCardState();
 }
@@ -73,44 +74,7 @@ class _SimpleCardState extends State<SimpleCard> {
       ),
       height: 300,
       margin: kCardMargin,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text(
-                'Новости',
-                style: kCardTypeTitleStyle,
-              ),
-              Text(
-                '  •  ',
-                style: kCardTypeTitleStyle,
-              ),
-              Text(
-                '16 часов назад',
-                style: kCardTypeTitleStyle,
-              )
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                widget.header,
-                style: kCardTitleStyle,
-              ),
-              SizedBox(
-                height: kPaddingVerticalSize,
-              ),
-              Text(
-                widget.subHeader,
-                style: kCardSubTitleStyle,
-              ),
-            ],
-          ),
-        ],
-      ),
+      child: widget.child,
     );
   }
 }
