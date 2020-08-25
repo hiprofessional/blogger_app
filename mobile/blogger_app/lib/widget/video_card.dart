@@ -44,6 +44,24 @@ class _VideoCardState extends State<VideoCard> {
                     ),
                   ),
                 ),
+                child: Center(
+                  child: Container(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 23,
+                      child: Center(
+                        child: ClipPath(
+                          clipper: CustomTriangleClipper(),
+                          child: Container(
+                            width: 16,
+                            height: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
               Padding(
                 padding: kCardPadding,
@@ -97,19 +115,22 @@ class _VideoCardState extends State<VideoCard> {
   }
 }
 
-//Row(
-//children: <Widget>[
-//Text(
-//'Новости',
-//style: kCardTypeTitleStyle,
-//),
-//Text(
-//'  •  ',
-//style: kCardTypeTitleStyle,
-//),
-//Text(
-//'16 часов назад',
-//style: kCardTypeTitleStyle,
-//)
-//],
-//),
+class CustomTriangleClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+//    path.lineTo(size.width, 0);
+//    path.lineTo(size.width, size.height);
+//    path.lineTo(0, 0);
+
+    path.lineTo(size.width, size.height / 2);
+    path.lineTo(0, size.height);
+    path.lineTo(0, 0);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
