@@ -2,9 +2,9 @@ import 'package:blogger_app/model/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ListItem extends StatelessWidget {
+class HeaderListItem extends StatelessWidget {
   final String header;
-  ListItem({this.header});
+  HeaderListItem({this.header});
 
   @override
   Widget build(BuildContext context) {
@@ -12,20 +12,20 @@ class ListItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Padding(
-          padding: kPaddingForLargeTitle,
+          padding: kPaddingForHeadline,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
                 this.header,
-                style: kLargeTitleStyle,
+                style: kHeadlineStyle,
               ),
               CircleAvatar()
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(0, 10, 0, 25),
+          padding: kPaddingForDivider,
           child: Divider(
             indent: kPaddingSize,
           ),
@@ -35,18 +35,25 @@ class ListItem extends StatelessWidget {
   }
 }
 
-class SimpleCard extends ListItem {
+class SimpleCard extends StatefulWidget {
   final String header;
   final String subHeader;
+  final String image;
 
-  SimpleCard({this.header, this.subHeader});
+  SimpleCard({this.header, this.subHeader, this.image});
+  @override
+  _SimpleCardState createState() => _SimpleCardState();
+}
 
+class _SimpleCardState extends State<SimpleCard> {
   @override
   Widget build(BuildContext context) {
+//    final double width = MediaQuery.of(context).size.width;
     return Container(
+      padding: kCardPadding,
       decoration: ShapeDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/mask.png'),
+          image: AssetImage(widget.image),
           fit: BoxFit.cover,
         ),
         color: Colors.teal,
@@ -64,13 +71,44 @@ class SimpleCard extends ListItem {
           ),
         ],
       ),
-      height: 375,
+      height: 300,
       margin: kCardMargin,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text('Новости'),
-          Text(header),
-          Text(subHeader),
+          Row(
+            children: <Widget>[
+              Text(
+                'Новости',
+                style: kCardTypeTitleStyle,
+              ),
+              Text(
+                '  •  ',
+                style: kCardTypeTitleStyle,
+              ),
+              Text(
+                '16 часов назад',
+                style: kCardTypeTitleStyle,
+              )
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                widget.header,
+                style: kCardTitleStyle,
+              ),
+              SizedBox(
+                height: kPaddingVerticalSize,
+              ),
+              Text(
+                widget.subHeader,
+                style: kCardSubTitleStyle,
+              ),
+            ],
+          ),
         ],
       ),
     );
