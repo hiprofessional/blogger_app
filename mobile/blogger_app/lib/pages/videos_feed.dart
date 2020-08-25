@@ -1,27 +1,21 @@
 import 'package:blogger_app/model/post.dart';
 import 'package:blogger_app/widget/card.dart';
-import 'package:blogger_app/widget/news_card.dart';
 import 'package:blogger_app/widget/video_card.dart';
 import 'package:flutter/cupertino.dart';
 
-class MainFeed extends StatefulWidget {
+class VideosFeed extends StatefulWidget {
   @override
-  _MainFeedState createState() => _MainFeedState();
+  _VideosFeedState createState() => _VideosFeedState();
 }
 
-class _MainFeedState extends State<MainFeed> {
+class _VideosFeedState extends State<VideosFeed> {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = [];
     widgets.add(HeaderListItem(
-      header: 'Лента',
+      header: 'Видео',
     ));
     widgets.addAll(someVideos.map((e) => VideoCard(
-          header: e.header,
-          subHeader: e.subHeader,
-          image: e.image,
-        )));
-    widgets.addAll(somePosts.map((e) => NewsCard(
           header: e.header,
           subHeader: e.subHeader,
           image: e.image,

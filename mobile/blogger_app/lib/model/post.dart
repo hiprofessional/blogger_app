@@ -20,3 +20,11 @@ final List<SimplePost> somePosts = [
     image: 'assets/laptop.jpg',
   )
 ];
+
+final List<SimplePost> someVideos = [
+  SimplePost(
+    header: 'Делаю приложение как у Wylsacom',
+//    subHeader: 'Все любят скидки.',
+    image: 'assets/mask.png',
+  ),
+];

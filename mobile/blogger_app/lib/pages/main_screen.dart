@@ -1,4 +1,5 @@
 import 'package:blogger_app/pages/main_feed.dart';
+import 'package:blogger_app/pages/videos_feed.dart';
 import 'package:flutter/cupertino.dart';
 
 class MainScreen extends StatefulWidget {
@@ -30,15 +31,16 @@ class _MainScreenState extends State<MainScreen> {
       tabBuilder: (context, index) {
         switch (index) {
           case 0:
-            return CupertinoTabView(builder: (context) => MainFeed());
+            return CupertinoTabView(
+                builder: (context) => MainFeed(), defaultTitle: 'Лента');
           case 1:
             return CupertinoTabView(
                 builder: (context) => Text('Hi'), defaultTitle: 'My Title');
           case 2:
-            return CupertinoTabView(
-                builder: (context) => Text('videos'), defaultTitle: 'My Title');
+            return CupertinoTabView(builder: (context) => VideosFeed());
           default:
-            return CupertinoTabView(builder: (context) => MainFeed());
+            return CupertinoTabView(
+                builder: (context) => MainFeed(), defaultTitle: 'Видео');
         }
       },
     );
