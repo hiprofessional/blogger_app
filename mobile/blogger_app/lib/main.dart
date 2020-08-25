@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: CupertinoThemeData(
-        primaryColor: Color(0xFFFF2D55),
-      ),
+//        primaryColor: Color(0xFFFF2D55),
+          ),
       home: CupertinoPageScaffold(
 //        navigationBar: CupertinoNavigationBar(),
         child: MainScreen(),
