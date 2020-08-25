@@ -18,43 +18,48 @@ class _NewsCardState extends State<NewsCard> {
       header: widget.header,
       subHeader: widget.subHeader,
       image: widget.image,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text(
-                'Новости',
-                style: kCardTypeTitleStyle,
-              ),
-              Text(
-                '  •  ',
-                style: kCardTypeTitleStyle,
-              ),
-              Text(
-                '16 часов назад',
-                style: kCardTypeTitleStyle,
-              )
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                widget.header,
-                style: kCardTitleStyle,
-              ),
-              SizedBox(
-                height: kPaddingVerticalSize,
-              ),
-              Text(
-                widget.subHeader,
-                style: kCardSubTitleStyle,
-              ),
-            ],
-          ),
-        ],
+      showBackgroundImage: true,
+      height: 300,
+      child: Padding(
+        padding: kCardPadding,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text(
+                  'Новости',
+                  style: kNewsCardTypeTitleStyle,
+                ),
+                Text(
+                  '  •  ',
+                  style: kNewsCardTypeTitleStyle,
+                ),
+                Text(
+                  '16 часов назад',
+                  style: kNewsCardTypeTitleStyle,
+                )
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  widget.header,
+                  style: kNewsCardTitleStyle,
+                ),
+                SizedBox(
+                  height: kPaddingVerticalSize,
+                ),
+                Text(
+                  widget.subHeader,
+                  style: kNewsCardSubTitleStyle,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

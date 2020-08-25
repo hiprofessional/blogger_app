@@ -40,8 +40,16 @@ class SimpleCard extends StatefulWidget {
   final String subHeader;
   final String image;
   final Widget child;
+  final double height;
+  final bool showBackgroundImage;
 
-  SimpleCard({this.header, this.subHeader, this.image, this.child});
+  SimpleCard(
+      {this.header,
+      this.subHeader,
+      this.image,
+      this.child,
+      this.height,
+      this.showBackgroundImage});
   @override
   _SimpleCardState createState() => _SimpleCardState();
 }
@@ -51,16 +59,17 @@ class _SimpleCardState extends State<SimpleCard> {
   Widget build(BuildContext context) {
 //    final double width = MediaQuery.of(context).size.width;
     return Container(
-      padding: kCardPadding,
       decoration: ShapeDecoration(
-        image: DecorationImage(
-          image: AssetImage(widget.image),
-          fit: BoxFit.cover,
-        ),
-        color: Colors.teal,
+        image: widget.showBackgroundImage
+            ? DecorationImage(
+                image: AssetImage(widget.image),
+                fit: BoxFit.cover,
+              )
+            : null,
+        color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(10),
+            Radius.circular(kBorderRadius),
           ),
         ),
         shadows: [
@@ -72,7 +81,7 @@ class _SimpleCardState extends State<SimpleCard> {
           ),
         ],
       ),
-      height: 300,
+      height: widget.height,
       margin: kCardMargin,
       child: widget.child,
     );

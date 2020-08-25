@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 const double kPaddingSize = 20;
 const double kPaddingVerticalSize = 10;
+const double kBorderRadius = 10;
 
 const EdgeInsetsGeometry kPaddingFromScreenEdge =
     EdgeInsets.symmetric(horizontal: kPaddingSize);
@@ -22,32 +23,44 @@ const kHeadlineStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-const kCardTitleStyle = TextStyle(
+const textShadow = Shadow(
+  blurRadius: 1,
+);
+const kNewsCardTitleStyle = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.bold,
   color: Colors.white,
   shadows: <Shadow>[
-    Shadow(
-      blurRadius: 1,
-    ),
+    textShadow,
   ],
 );
 
-const kCardTypeTitleStyle = TextStyle(
+const kNewsCardTypeTitleStyle = TextStyle(
   fontSize: 12,
   color: Colors.white,
   shadows: <Shadow>[
-    Shadow(
-      blurRadius: 1,
-    ),
+    textShadow,
   ],
 );
-final kCardSubTitleStyle = TextStyle(
+final kNewsCardSubTitleStyle = TextStyle(
   fontSize: 14,
   color: Color(0xffc7c7c7),
   shadows: <Shadow>[
-    Shadow(
-      blurRadius: 1,
-    ),
+    textShadow,
   ],
+);
+
+const kVideoCardTitleStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final kVideoCardSubTitleStyle = TextStyle(
+  fontSize: 12,
+  color: Color(0xff999999),
+);
+final kVideoCardChanelTitleStyle = TextStyle(
+  fontSize: 12,
+  color: Color(0xff6D6D72),
 );
