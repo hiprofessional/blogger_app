@@ -9,23 +9,24 @@ class ContestCard extends StatefulWidget {
   final String subHeader;
   final String image;
   final DateTime createdDate;
-  final bool isFinished;
-  final int daysToFinish;
+  final DateTime contestFinishDate;
+  bool isContestFinished;
 
   ContestCard({
     this.header,
     this.subHeader,
     this.image,
     this.createdDate,
-    this.isFinished,
-    this.daysToFinish,
+    this.contestFinishDate,
+    this.isContestFinished,
   });
   @override
   _ContestCardState createState() => _ContestCardState();
 }
 
 class _ContestCardState extends State<ContestCard> {
-  getMessageForFinish(int days) {
+  getMessageForFinish(DateTime contestFinishDate) {
+    final days = howMuchDaysToFinish(contestFinishDate);
     var mod = days % 10;
     var modH = days % 100;
 
@@ -36,6 +37,11 @@ class _ContestCardState extends State<ContestCard> {
       return 'Осталось $days дня';
     }
     return 'Осталось $days дней';
+  }
+
+  int howMuchDaysToFinish(DateTime contestFinishDate) {
+    Duration difference = contestFinishDate.difference(DateTime.now());
+    return difference.inDays;
   }
 
   @override
@@ -58,7 +64,7 @@ class _ContestCardState extends State<ContestCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    if (widget.isFinished)
+                    if (widget.isContestFinished)
                       Text(
                         kContestFinishedText.toUpperCase(),
                         style: kVideoCardSubTitleStyle,
@@ -78,7 +84,7 @@ class _ContestCardState extends State<ContestCard> {
                     SizedBox(
                       height: kPaddingVerticalSize,
                     ),
-                    if (!widget.isFinished)
+                    if (!widget.isContestFinished)
                       Row(
                         children: <Widget>[
                           Icon(
@@ -90,7 +96,7 @@ class _ContestCardState extends State<ContestCard> {
                             width: kPaddingVerticalSize,
                           ),
                           Text(
-                            getMessageForFinish(widget.daysToFinish),
+                            getMessageForFinish(widget.contestFinishDate),
                             style: kTimeToFinishContestStyle,
                           ),
                         ],

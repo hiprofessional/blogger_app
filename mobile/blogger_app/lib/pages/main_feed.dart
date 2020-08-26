@@ -40,8 +40,8 @@ class _MainFeedState extends State<MainFeed> {
             subHeader: e.subHeader,
             image: e.image,
             createdDate: e.createdDate,
-            daysToFinish: e.daysToFinish,
-            isFinished: e.isFinished,
+            contestFinishDate: e.contestFinishDate,
+            isContestFinished: e.isContestFinished,
           );
         default:
           return NewsCard(

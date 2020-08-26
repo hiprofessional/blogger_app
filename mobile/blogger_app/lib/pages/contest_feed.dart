@@ -22,8 +22,8 @@ class _ContestFeedState extends State<ContestFeed> {
           subHeader: e.subHeader,
           image: e.image,
           createdDate: e.createdDate,
-          daysToFinish: e.daysToFinish,
-          isFinished: e.isFinished,
+          contestFinishDate: e.contestFinishDate,
+          isContestFinished: e.isContestFinished,
         )));
 
     return SafeArea(
