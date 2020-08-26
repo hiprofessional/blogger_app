@@ -16,16 +16,29 @@ class _MainFeedState extends State<MainFeed> {
     widgets.add(HeaderListItem(
       header: 'Лента',
     ));
-    widgets.addAll(someVideos.map((e) => VideoCard(
-          header: e.header,
-          subHeader: e.subHeader,
-          image: e.image,
-        )));
-    widgets.addAll(somePosts.map((e) => NewsCard(
-          header: e.header,
-          subHeader: e.subHeader,
-          image: e.image,
-        )));
+
+    widgets.addAll(somePosts.map((e) {
+      switch (e.postType) {
+        case PostType.News:
+          return NewsCard(
+            header: e.header,
+            subHeader: e.subHeader,
+            image: e.image,
+          );
+        case PostType.Video:
+          return VideoCard(
+            header: e.header,
+            subHeader: e.subHeader,
+            image: e.image,
+          );
+        default:
+          return NewsCard(
+            header: e.header,
+            subHeader: e.subHeader,
+            image: e.image,
+          );
+      }
+    }));
     return SafeArea(
       child: CupertinoPageScaffold(
         child: ListView.builder(
