@@ -23,11 +23,25 @@ class _VideosFeedState extends State<VideosFeed> {
         )));
     return SafeArea(
       child: CupertinoPageScaffold(
-        child: ListView.builder(
-          itemCount: widgets.length,
-          itemBuilder: (context, index) {
-            return widgets[index];
-          },
+        child: CustomScrollView(
+          slivers: <Widget>[
+            new CupertinoSliverRefreshControl(
+              onRefresh: () {
+                return Future.delayed(const Duration(seconds: 3));
+              },
+            ),
+            new SliverSafeArea(
+              top: true,
+              sliver: new SliverList(
+                delegate: new SliverChildBuilderDelegate(
+                  (context, index) {
+                    return widgets[index];
+                  },
+                  childCount: widgets.length,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
