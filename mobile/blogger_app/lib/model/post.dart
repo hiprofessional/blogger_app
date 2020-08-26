@@ -6,12 +6,16 @@ class SimplePost {
   String image;
   PostType postType;
   DateTime createdDate;
+  final bool isFinished;
+  final int daysToFinish;
   SimplePost({
     this.header,
     this.subHeader,
     this.image,
     this.postType,
     this.createdDate,
+    this.isFinished,
+    this.daysToFinish,
   });
 }
 
@@ -28,6 +32,8 @@ final contestPost = SimplePost(
   image: 'assets/appleTv.png',
   postType: PostType.Contest,
   createdDate: DateTime.now().add(Duration(hours: -1)),
+  daysToFinish: 2,
+  isFinished: false,
 );
 final List<SimplePost> somePosts = [
   videoPost,

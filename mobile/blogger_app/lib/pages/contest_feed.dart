@@ -1,5 +1,6 @@
 import 'package:blogger_app/model/post.dart';
 import 'package:blogger_app/widget/card.dart';
+import 'package:blogger_app/widget/contest_card.dart';
 import 'package:blogger_app/widget/video_card.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -16,11 +17,13 @@ class _ContestFeedState extends State<ContestFeed> {
     widgets.add(HeaderListItem(
       header: 'Конкурсы',
     ));
-    widgets.addAll(someContest.map((e) => VideoCard(
+    widgets.addAll(someContest.map((e) => ContestCard(
           header: e.header,
           subHeader: e.subHeader,
           image: e.image,
           createdDate: e.createdDate,
+          daysToFinish: e.daysToFinish,
+          isFinished: e.isFinished,
         )));
 
     return SafeArea(

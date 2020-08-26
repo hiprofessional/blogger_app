@@ -68,6 +68,11 @@ final kVideoCardChanelTitleStyle = TextStyle(
   color: Color(0xff6D6D72),
 );
 
+final kTimeToFinishContestStyle = TextStyle(
+  fontSize: 12,
+  color: Color(0xFF2FC576),
+);
+
 //message
 const kNewVideoText = 'Новое видео';
 const kNewsText = 'Новости';
