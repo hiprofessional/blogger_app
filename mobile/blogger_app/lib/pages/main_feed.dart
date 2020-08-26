@@ -24,18 +24,21 @@ class _MainFeedState extends State<MainFeed> {
             header: e.header,
             subHeader: e.subHeader,
             image: e.image,
+            createdDate: e.createdDate,
           );
         case PostType.Video:
           return VideoCard(
             header: e.header,
             subHeader: e.subHeader,
             image: e.image,
+            createdDate: e.createdDate,
           );
         default:
           return NewsCard(
             header: e.header,
             subHeader: e.subHeader,
             image: e.image,
+            createdDate: e.createdDate,
           );
       }
     }));

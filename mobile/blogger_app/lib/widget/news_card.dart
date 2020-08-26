@@ -1,12 +1,14 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/widget/card.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class NewsCard extends StatefulWidget {
   final String header;
   final String subHeader;
   final String image;
-  NewsCard({this.header, this.subHeader, this.image});
+  final DateTime createdDate;
+  NewsCard({this.header, this.subHeader, this.image, this.createdDate});
   @override
   _NewsCardState createState() => _NewsCardState();
 }
@@ -14,6 +16,7 @@ class NewsCard extends StatefulWidget {
 class _NewsCardState extends State<NewsCard> {
   @override
   Widget build(BuildContext context) {
+    timeago.setLocaleMessages('Ru', timeago.RuMessages());
     return SimpleCard(
       header: widget.header,
       subHeader: widget.subHeader,
@@ -29,7 +32,7 @@ class _NewsCardState extends State<NewsCard> {
             Row(
               children: <Widget>[
                 Text(
-                  'Новости',
+                  kNewsText,
                   style: kNewsCardTypeTitleStyle,
                 ),
                 Text(
@@ -37,7 +40,7 @@ class _NewsCardState extends State<NewsCard> {
                   style: kNewsCardTypeTitleStyle,
                 ),
                 Text(
-                  '16 часов назад',
+                  timeago.format(widget.createdDate, locale: 'ru'),
                   style: kNewsCardTypeTitleStyle,
                 )
               ],

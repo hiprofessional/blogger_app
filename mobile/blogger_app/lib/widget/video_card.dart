@@ -2,13 +2,15 @@ import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/widget/card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class VideoCard extends StatefulWidget {
   final String header;
   final String subHeader;
   final String image;
+  final DateTime createdDate;
 
-  VideoCard({this.header, this.subHeader, this.image});
+  VideoCard({this.header, this.subHeader, this.image, this.createdDate});
   @override
   _VideoCardState createState() => _VideoCardState();
 }
@@ -16,6 +18,7 @@ class VideoCard extends StatefulWidget {
 class _VideoCardState extends State<VideoCard> {
   @override
   Widget build(BuildContext context) {
+    timeago.setLocaleMessages('ru', timeago.RuMessages());
     return SimpleCard(
       header: widget.header,
       subHeader: widget.subHeader,
@@ -69,7 +72,7 @@ class _VideoCardState extends State<VideoCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Новое видео'.toUpperCase(),
+                      kNewVideoText.toUpperCase(),
                       style: kVideoCardSubTitleStyle,
                     ),
                     SizedBox(
@@ -99,7 +102,7 @@ class _VideoCardState extends State<VideoCard> {
                           style: kVideoCardChanelTitleStyle,
                         ),
                         Text(
-                          '16 часов назад',
+                          timeago.format(widget.createdDate, locale: 'ru'),
                           style: kVideoCardChanelTitleStyle,
                         )
                       ],

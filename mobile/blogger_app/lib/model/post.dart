@@ -1,6 +1,5 @@
 import 'package:blogger_app/widget/card.dart';
 
-// @TODO: add created date, add post type
 class SimplePost {
   String header;
   String subHeader;
@@ -23,18 +22,21 @@ final List<SimplePost> somePosts = [
     header: 'Делаю приложение как у Wylsacom',
     image: 'assets/mask.png',
     postType: PostType.Video,
+    createdDate: DateTime.now().add(Duration(minutes: -2)),
   ),
   SimplePost(
     header: 'Началась распродажа смартфонов OPPPO с кешбэком',
     subHeader: 'Все любят скидки.',
     image: 'assets/laptop2.jpg',
     postType: PostType.News,
+    createdDate: DateTime.now().add(Duration(days: -1)),
   ),
   SimplePost(
     header: 'Продаю свою Audi A4 после того как увидел новую',
     subHeader: 'WAG еще торт.',
     image: 'assets/laptop.jpg',
     postType: PostType.News,
+    createdDate: DateTime.now().add(Duration(days: -2)),
   )
 ];
 

@@ -1,6 +1,7 @@
 //import 'package:flutter/material.dart';
 import 'package:blogger_app/pages/main_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 void main() {
   runApp(MyApp());
