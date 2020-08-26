@@ -33,6 +33,13 @@ class _MainFeedState extends State<MainFeed> {
             image: e.image,
             createdDate: e.createdDate,
           );
+        case PostType.Contest:
+          return VideoCard(
+            header: e.header,
+            subHeader: e.subHeader,
+            image: e.image,
+            createdDate: e.createdDate,
+          );
         default:
           return NewsCard(
             header: e.header,

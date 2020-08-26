@@ -1,3 +1,4 @@
+import 'package:blogger_app/pages/contest_feed.dart';
 import 'package:blogger_app/pages/main_feed.dart';
 import 'package:blogger_app/pages/videos_feed.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,16 +32,13 @@ class _MainScreenState extends State<MainScreen> {
       tabBuilder: (context, index) {
         switch (index) {
           case 0:
-            return CupertinoTabView(
-                builder: (context) => MainFeed(), defaultTitle: 'Лента');
+            return CupertinoTabView(builder: (context) => MainFeed());
           case 1:
-            return CupertinoTabView(
-                builder: (context) => Text('Hi'), defaultTitle: 'My Title');
+            return CupertinoTabView(builder: (context) => ContestFeed());
           case 2:
             return CupertinoTabView(builder: (context) => VideosFeed());
           default:
-            return CupertinoTabView(
-                builder: (context) => MainFeed(), defaultTitle: 'Видео');
+            return CupertinoTabView(builder: (context) => MainFeed());
         }
       },
     );

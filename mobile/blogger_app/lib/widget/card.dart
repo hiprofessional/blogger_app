@@ -42,14 +42,17 @@ class SimpleCard extends StatefulWidget {
   final Widget child;
   final double height;
   final bool showBackgroundImage;
+  final DateTime contestFinishDate;
 
-  SimpleCard(
-      {this.header,
-      this.subHeader,
-      this.image,
-      this.child,
-      this.height,
-      this.showBackgroundImage});
+  SimpleCard({
+    this.header,
+    this.subHeader,
+    this.image,
+    this.child,
+    this.height,
+    this.showBackgroundImage,
+    this.contestFinishDate,
+  });
   @override
   _SimpleCardState createState() => _SimpleCardState();
 }

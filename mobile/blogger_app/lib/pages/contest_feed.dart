@@ -3,24 +3,26 @@ import 'package:blogger_app/widget/card.dart';
 import 'package:blogger_app/widget/video_card.dart';
 import 'package:flutter/cupertino.dart';
 
-class VideosFeed extends StatefulWidget {
+class ContestFeed extends StatefulWidget {
   @override
-  _VideosFeedState createState() => _VideosFeedState();
+  _ContestFeedState createState() => _ContestFeedState();
 }
 
-class _VideosFeedState extends State<VideosFeed> {
+class _ContestFeedState extends State<ContestFeed> {
+  List<Widget> widgets = [];
+
   @override
   Widget build(BuildContext context) {
-    List<Widget> widgets = [];
     widgets.add(HeaderListItem(
-      header: 'Видео',
+      header: 'Конкурсы',
     ));
-    widgets.addAll(someVideos.map((e) => VideoCard(
+    widgets.addAll(someContest.map((e) => VideoCard(
           header: e.header,
           subHeader: e.subHeader,
           image: e.image,
           createdDate: e.createdDate,
         )));
+
     return SafeArea(
       child: CupertinoPageScaffold(
         child: ListView.builder(

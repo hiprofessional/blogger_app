@@ -17,13 +17,21 @@ class SimplePost {
 
 enum PostType { News, Video, Contest }
 
+final videoPost = SimplePost(
+  header: 'Делаю приложение как у Wylsacom',
+  image: 'assets/mask.png',
+  postType: PostType.Video,
+  createdDate: DateTime.now().add(Duration(minutes: -2)),
+);
+final contestPost = SimplePost(
+  header: 'Розыгрыш приставки AppleTV',
+  image: 'assets/appleTv.png',
+  postType: PostType.Contest,
+  createdDate: DateTime.now().add(Duration(hours: -1)),
+);
 final List<SimplePost> somePosts = [
-  SimplePost(
-    header: 'Делаю приложение как у Wylsacom',
-    image: 'assets/mask.png',
-    postType: PostType.Video,
-    createdDate: DateTime.now().add(Duration(minutes: -2)),
-  ),
+  videoPost,
+  contestPost,
   SimplePost(
     header: 'Началась распродажа смартфонов OPPPO с кешбэком',
     subHeader: 'Все любят скидки.',
@@ -41,9 +49,9 @@ final List<SimplePost> somePosts = [
 ];
 
 final List<SimplePost> someVideos = [
-  SimplePost(
-    header: 'Делаю приложение как у Wylsacom',
-    image: 'assets/mask.png',
-    postType: PostType.Video,
-  ),
+  videoPost,
+];
+
+final List<SimplePost> someContest = [
+  contestPost,
 ];

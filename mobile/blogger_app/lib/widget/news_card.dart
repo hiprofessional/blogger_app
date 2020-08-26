@@ -56,7 +56,7 @@ class _NewsCardState extends State<NewsCard> {
                   height: kPaddingVerticalSize,
                 ),
                 Text(
-                  widget.subHeader,
+                  widget.subHeader ?? '',
                   style: kNewsCardSubTitleStyle,
                 ),
               ],
