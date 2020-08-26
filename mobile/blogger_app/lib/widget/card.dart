@@ -58,35 +58,62 @@ class SimpleCard extends StatefulWidget {
 }
 
 class _SimpleCardState extends State<SimpleCard> {
+  var trX = 0.0;
+  var trY = 0.0;
+  var scale = 1.0;
+
   @override
   Widget build(BuildContext context) {
-//    final double width = MediaQuery.of(context).size.width;
-    return Container(
-      decoration: ShapeDecoration(
-        image: widget.showBackgroundImage
-            ? DecorationImage(
-                image: AssetImage(widget.image),
-                fit: BoxFit.cover,
-              )
-            : null,
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(kBorderRadius),
+    final double width = MediaQuery.of(context).size.width;
+    return GestureDetector(
+      onTapDown: (d) {
+        setState(() {
+          scale = 0.98;
+          trX = 0.01 * width * scale;
+          trY = 0.01 * widget.height;
+        });
+      },
+      onTapUp: (d) {
+        setState(() {
+          scale = 1;
+          trX = 0.0;
+          trY = 0.0;
+        });
+      },
+      child: AnimatedContainer(
+        duration: new Duration(milliseconds: 140),
+        height: widget.height,
+        transform: Matrix4.identity()
+          ..translate(trX, trY)
+          ..scale(scale, scale),
+        child: Container(
+          decoration: ShapeDecoration(
+            image: widget.showBackgroundImage
+                ? DecorationImage(
+                    image: AssetImage(widget.image),
+                    fit: BoxFit.cover,
+                  )
+                : null,
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(kBorderRadius),
+              ),
+            ),
+            shadows: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 5,
+                blurRadius: 20,
+                offset: Offset(0, 0), // changes position of shadow
+              ),
+            ],
           ),
+          height: widget.height,
+          margin: kCardMargin,
+          child: widget.child,
         ),
-        shadows: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 5,
-            blurRadius: 20,
-            offset: Offset(0, 0), // changes position of shadow
-          ),
-        ],
       ),
-      height: widget.height,
-      margin: kCardMargin,
-      child: widget.child,
     );
   }
 }

@@ -51,7 +51,7 @@ class _ContestCardState extends State<ContestCard> {
       header: widget.header,
       subHeader: widget.subHeader,
       showBackgroundImage: false,
-//      height: 320,
+      height: 320,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

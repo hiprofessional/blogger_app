@@ -23,7 +23,7 @@ class _VideoCardState extends State<VideoCard> {
       header: widget.header,
       subHeader: widget.subHeader,
       showBackgroundImage: false,
-//      height: 320,
+      height: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +33,7 @@ class _VideoCardState extends State<VideoCard> {
             children: <Widget>[
               Container(
                 width: double.infinity,
-                height: 150,
+                height: 130,
                 decoration: ShapeDecoration(
 //                  color: Colors.red,
                   image: DecorationImage(
