@@ -1,7 +1,6 @@
 import 'package:blogger_app/model/post.dart';
 import 'package:blogger_app/widget/card.dart';
 import 'package:blogger_app/widget/contest_card.dart';
-import 'package:blogger_app/widget/video_card.dart';
 import 'package:flutter/cupertino.dart';
 
 class ContestFeed extends StatefulWidget {
@@ -27,11 +26,25 @@ class _ContestFeedState extends State<ContestFeed> {
 
     return SafeArea(
       child: CupertinoPageScaffold(
-        child: ListView.builder(
-          itemCount: widgets.length,
-          itemBuilder: (context, index) {
-            return widgets[index];
-          },
+        child: CustomScrollView(
+          slivers: <Widget>[
+            new CupertinoSliverRefreshControl(
+              onRefresh: () {
+                return Future.delayed(const Duration(seconds: 3));
+              },
+            ),
+            new SliverSafeArea(
+              top: true,
+              sliver: new SliverList(
+                delegate: new SliverChildBuilderDelegate(
+                  (context, index) {
+                    return widgets[index];
+                  },
+                  childCount: widgets.length,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
