@@ -84,6 +84,7 @@ class _ContestCardState extends State<ContestCard> {
                           Icon(
                             CupertinoIcons.clock_solid,
                             color: Color(0xff2FC576),
+                            size: 16,
                           ),
                           SizedBox(
                             width: kPaddingVerticalSize,
