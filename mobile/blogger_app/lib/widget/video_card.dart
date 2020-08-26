@@ -35,7 +35,7 @@ class _VideoCardState extends State<VideoCard> {
                 width: double.infinity,
                 height: 150,
                 decoration: ShapeDecoration(
-                  color: Colors.red,
+//                  color: Colors.red,
                   image: DecorationImage(
                     image: AssetImage(widget.image),
                     fit: BoxFit.fitHeight,
@@ -48,18 +48,16 @@ class _VideoCardState extends State<VideoCard> {
                   ),
                 ),
                 child: Center(
-                  child: Container(
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 23,
-                      child: Center(
-                        child: ClipPath(
-                          clipper: CustomTriangleClipper(),
-                          child: Container(
-                            width: 16,
-                            height: 18,
-                            color: Colors.black,
-                          ),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 23,
+                    child: Center(
+                      child: ClipPath(
+                        clipper: CustomTriangleClipper(),
+                        child: Container(
+                          width: 12,
+                          height: 14,
+                          color: Colors.black,
                         ),
                       ),
                     ),
