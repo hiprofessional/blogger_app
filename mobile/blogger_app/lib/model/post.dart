@@ -1,5 +1,3 @@
-import 'package:blogger_app/widget/card.dart';
-
 class SimplePost {
   String header;
   String subHeader;

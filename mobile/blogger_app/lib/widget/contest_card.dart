@@ -10,7 +10,7 @@ class ContestCard extends StatefulWidget {
   final String image;
   final DateTime createdDate;
   final DateTime contestFinishDate;
-  bool isContestFinished;
+  final bool isContestFinished;
 
   ContestCard({
     this.header,
