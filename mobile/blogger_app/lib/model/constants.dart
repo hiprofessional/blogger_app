@@ -76,3 +76,4 @@ final kTimeToFinishContestStyle = TextStyle(
 //message
 const kNewVideoText = 'Новое видео';
 const kNewsText = 'Новости';
+const kContestFinishedText = 'Завершен';

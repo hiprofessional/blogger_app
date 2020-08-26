@@ -58,6 +58,11 @@ class _ContestCardState extends State<ContestCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    if (widget.isFinished)
+                      Text(
+                        kContestFinishedText.toUpperCase(),
+                        style: kVideoCardSubTitleStyle,
+                      ),
                     if (widget.subHeader != null)
                       Text(
                         widget.subHeader.toUpperCase(),
@@ -73,21 +78,22 @@ class _ContestCardState extends State<ContestCard> {
                     SizedBox(
                       height: kPaddingVerticalSize,
                     ),
-                    Row(
-                      children: <Widget>[
-                        Icon(
-                          CupertinoIcons.clock_solid,
-                          color: Color(0xff2FC576),
-                        ),
-                        SizedBox(
-                          width: kPaddingVerticalSize,
-                        ),
-                        Text(
-                          getMessageForFinish(widget.daysToFinish),
-                          style: kTimeToFinishContestStyle,
-                        ),
-                      ],
-                    )
+                    if (!widget.isFinished)
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            CupertinoIcons.clock_solid,
+                            color: Color(0xff2FC576),
+                          ),
+                          SizedBox(
+                            width: kPaddingVerticalSize,
+                          ),
+                          Text(
+                            getMessageForFinish(widget.daysToFinish),
+                            style: kTimeToFinishContestStyle,
+                          ),
+                        ],
+                      )
                   ],
                 ),
               ),

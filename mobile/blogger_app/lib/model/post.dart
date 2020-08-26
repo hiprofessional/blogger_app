@@ -35,6 +35,15 @@ final contestPost = SimplePost(
   daysToFinish: 2,
   isFinished: false,
 );
+
+final contestPost2 = SimplePost(
+  header: 'Розыгрыш приставки AppleTV 4k',
+  image: 'assets/appleTv.png',
+  postType: PostType.Contest,
+  createdDate: DateTime.now().add(Duration(hours: -5)),
+  daysToFinish: 0,
+  isFinished: true,
+);
 final List<SimplePost> somePosts = [
   videoPost,
   contestPost,
@@ -60,4 +69,5 @@ final List<SimplePost> someVideos = [
 
 final List<SimplePost> someContest = [
   contestPost,
+  contestPost2,
 ];
