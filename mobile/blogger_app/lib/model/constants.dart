@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// size
 const double kPaddingSize = 20;
 const double kPaddingVerticalSize = 10;
 const double kBorderRadius = 10;
 
+// padding, margin
 const EdgeInsetsGeometry kPaddingFromScreenEdge =
     EdgeInsets.symmetric(horizontal: kPaddingSize);
 const EdgeInsetsGeometry kPaddingForHeadline = EdgeInsets.fromLTRB(
@@ -18,6 +20,7 @@ const EdgeInsetsGeometry kCardPadding = EdgeInsets.all(kPaddingSize);
 const EdgeInsetsGeometry kPaddingForDivider =
     EdgeInsets.fromLTRB(0, kPaddingVerticalSize, 0, 5);
 
+// text style
 const kHeadlineStyle = TextStyle(
   fontSize: 34,
   fontWeight: FontWeight.bold,
@@ -64,3 +67,7 @@ final kVideoCardChanelTitleStyle = TextStyle(
   fontSize: 12,
   color: Color(0xff6D6D72),
 );
+
+//message
+const kNewVideoText = 'Новое видео';
+const kNewsText = 'Новости';
