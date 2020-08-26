@@ -10,10 +10,9 @@ class ContestFeed extends StatefulWidget {
 }
 
 class _ContestFeedState extends State<ContestFeed> {
-  List<Widget> widgets = [];
-
   @override
   Widget build(BuildContext context) {
+    List<Widget> widgets = [];
     widgets.add(HeaderListItem(
       header: 'Конкурсы',
     ));
