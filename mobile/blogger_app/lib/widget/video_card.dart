@@ -23,6 +23,9 @@ class _VideoCardState extends State<VideoCard> {
       header: widget.header,
       subHeader: widget.subHeader,
       showBackgroundImage: false,
+      onTap: () {
+        Navigator.pushNamed(context, '/details/');
+      },
       height: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

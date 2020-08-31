@@ -52,6 +52,9 @@ class _ContestCardState extends State<ContestCard> {
       subHeader: widget.subHeader,
       showBackgroundImage: false,
       height: 320,
+      onTap: () {
+        Navigator.pushNamed(context, '/details/');
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
