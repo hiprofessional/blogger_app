@@ -23,6 +23,9 @@ class _NewsCardState extends State<NewsCard> {
       image: widget.image,
       showBackgroundImage: true,
       height: 300,
+      onTap: () {
+        Navigator.pushNamed(context, '/details/');
+      },
       child: Padding(
         padding: kCardPadding,
         child: Column(

@@ -43,6 +43,7 @@ class SimpleCard extends StatefulWidget {
   final double height;
   final bool showBackgroundImage;
   final DateTime contestFinishDate;
+  final Function onTap;
 
   SimpleCard({
     this.header,
@@ -52,6 +53,7 @@ class SimpleCard extends StatefulWidget {
     this.height,
     this.showBackgroundImage,
     this.contestFinishDate,
+    this.onTap,
   });
   @override
   _SimpleCardState createState() => _SimpleCardState();
@@ -79,6 +81,9 @@ class _SimpleCardState extends State<SimpleCard> {
           trX = 0.0;
           trY = 0.0;
         });
+      },
+      onTap: () {
+        widget.onTap();
       },
       child: AnimatedContainer(
         duration: new Duration(milliseconds: 140),

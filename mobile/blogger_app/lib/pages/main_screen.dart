@@ -1,4 +1,5 @@
 import 'package:blogger_app/pages/contest_feed.dart';
+import 'package:blogger_app/pages/details_page.dart';
 import 'package:blogger_app/pages/main_feed.dart';
 import 'package:blogger_app/pages/videos_feed.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,23 +33,35 @@ class _MainScreenState extends State<MainScreen> {
       tabBuilder: (context, index) {
         switch (index) {
           case 0:
-            return CupertinoTabView(builder: (context) => MainFeed());
+            return CupertinoTabView(
+              builder: (context) => MainFeed(),
+              routes: {
+                '/details/': (context) => DetailsPage(),
+              },
+            );
           case 1:
-            return CupertinoTabView(builder: (context) => ContestFeed());
+            return CupertinoTabView(
+              builder: (context) => ContestFeed(),
+              routes: {
+                '/details/': (context) => DetailsPage(),
+              },
+            );
           case 2:
-            return CupertinoTabView(builder: (context) => VideosFeed());
+            return CupertinoTabView(
+              builder: (context) => VideosFeed(),
+              routes: {
+                '/details/': (context) => DetailsPage(),
+              },
+            );
           default:
-            return CupertinoTabView(builder: (context) => MainFeed());
+            return CupertinoTabView(
+              builder: (context) => MainFeed(),
+              routes: {
+                '/details/': (context) => DetailsPage(),
+              },
+            );
         }
       },
     );
-//    return SafeArea(
-//      child: Container(
-//        child: Text(
-//          'Feed',
-////          style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
-//        ),
-//      ),
-//    );
   }
 }

@@ -1,4 +1,5 @@
 //import 'package:flutter/material.dart';
+import 'package:blogger_app/pages/details_page.dart';
 import 'package:blogger_app/pages/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -16,10 +17,9 @@ class MyApp extends StatelessWidget {
       theme: CupertinoThemeData(
 //        primaryColor: Color(0xFFFF2D55),
           ),
-      home: CupertinoPageScaffold(
-//        navigationBar: CupertinoNavigationBar(),
-        child: MainScreen(),
-      ),
+      routes: {
+        '/': (context) => MainScreen(),
+      },
     );
   }
 }

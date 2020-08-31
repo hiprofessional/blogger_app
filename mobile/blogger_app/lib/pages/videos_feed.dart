@@ -1,4 +1,4 @@
-import 'package:blogger_app/model/post.dart';
+import 'package:blogger_app/model/testdata.dart';
 import 'package:blogger_app/widget/card.dart';
 import 'package:blogger_app/widget/video_card.dart';
 import 'package:flutter/cupertino.dart';

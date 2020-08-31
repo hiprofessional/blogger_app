@@ -1,9 +1,12 @@
 import 'package:blogger_app/model/post.dart';
+import 'package:blogger_app/model/testdata.dart';
+import 'package:blogger_app/service/feed.service.dart';
 import 'package:blogger_app/widget/card.dart';
 import 'package:blogger_app/widget/contest_card.dart';
 import 'package:blogger_app/widget/news_card.dart';
 import 'package:blogger_app/widget/video_card.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class MainFeed extends StatefulWidget {
   @override
@@ -11,14 +14,34 @@ class MainFeed extends StatefulWidget {
 }
 
 class _MainFeedState extends State<MainFeed> {
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> widgets = [];
-    widgets.add(HeaderListItem(
+  var feedService = FeedService();
+  bool loading = true;
+  List<SimplePost> posts = [];
+  List<Widget> header = [
+    HeaderListItem(
       header: 'Лента',
-    ));
+    )
+  ];
 
-    widgets.addAll(somePosts.map((e) {
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    feedService.getAllPosts().then((value) {
+      setState(() {
+        this.posts = value;
+        this.loading = false;
+      });
+    });
+  }
+
+  List<Widget> getWidgetsForPosts(List<SimplePost> items) {
+    List<Widget> widgets = [];
+
+    widgets.addAll(items.map((e) {
       switch (e.postType) {
         case PostType.News:
           return NewsCard(
@@ -52,6 +75,12 @@ class _MainFeedState extends State<MainFeed> {
           );
       }
     }));
+    return widgets;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var widgets = getWidgetsForPosts(this.posts);
     return SafeArea(
       child: CupertinoPageScaffold(
         child: CustomScrollView(
@@ -66,13 +95,36 @@ class _MainFeedState extends State<MainFeed> {
               sliver: new SliverList(
                 delegate: new SliverChildBuilderDelegate(
                   (context, index) {
-                    return widgets[index];
+                    return header[index];
                   },
-                  childCount: widgets.length,
+                  childCount: header.length,
                 ),
               ),
             ),
+            if (this.loading) _beforeDataLoaded(),
+            if (!this.loading)
+              new SliverSafeArea(
+                top: true,
+                sliver: new SliverList(
+                  delegate: new SliverChildBuilderDelegate(
+                    (context, index) {
+                      return widgets[index];
+                    },
+                    childCount: widgets.length,
+                  ),
+                ),
+              ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _beforeDataLoaded() {
+    return new SliverFillRemaining(
+      child: new Container(
+        child: new Center(
+          child: new CupertinoActivityIndicator(),
         ),
       ),
     );
