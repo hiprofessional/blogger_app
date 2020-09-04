@@ -1,5 +1,6 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/widget/card.dart';
+import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -32,21 +33,10 @@ class _NewsCardState extends State<NewsCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Text(
-                  kNewsText,
-                  style: kNewsCardTypeTitleStyle,
-                ),
-                Text(
-                  '  •  ',
-                  style: kNewsCardTypeTitleStyle,
-                ),
-                Text(
-                  timeago.format(widget.createdDate, locale: 'ru'),
-                  style: kNewsCardTypeTitleStyle,
-                )
-              ],
+            SubHeaderWithTime(
+              text: kNewsText,
+              date: widget.createdDate,
+              showAvatar: false,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

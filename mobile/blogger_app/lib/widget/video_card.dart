@@ -1,5 +1,6 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/widget/card.dart';
+import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -85,6 +86,11 @@ class _VideoCardState extends State<VideoCard> {
                     ),
                     SizedBox(
                       height: kPaddingVerticalSize,
+                    ),
+                    SubHeaderWithTime(
+                      text: 'Hi Pro!',
+                      date: widget.createdDate,
+                      showAvatar: true,
                     ),
                     Row(
                       children: <Widget>[
