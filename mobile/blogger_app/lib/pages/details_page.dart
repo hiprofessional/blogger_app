@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class DetailsPage extends StatefulWidget {
   @override
@@ -11,10 +12,20 @@ class _DetailsPageState extends State<DetailsPage> {
     return SafeArea(
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(),
-        child: Container(
-          child: Center(
-            child: Text('Hi'),
-          ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 45,
+            ),
+            Row(),
+            Html(
+              data: """
+              <div>
+                <h1>Hello there</h1>
+              </div>
+              """,
+            ),
+          ],
         ),
       ),
     );
