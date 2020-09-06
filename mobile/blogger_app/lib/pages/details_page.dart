@@ -72,7 +72,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
                     ),
                     'p': Style(
-                      margin: kPaddingFromScreenEdge,
+                      margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
                       fontSize: FontSize(16),
                       textAlign: TextAlign.justify,
                     ),
