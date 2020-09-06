@@ -1,5 +1,26 @@
 import 'post.dart';
 
+var v1content = """
+<p>На этой неделе компания решила не делать 
+громких заявлений и особых поводов для новостей. 
+Видимо, это затишье перед бурей, когда Apple выпустит 
+целый ворох новинок. 
+</p>
+<p> 
+Даты презентации или презентаций пока нет, 
+так что все мы заняли выжидающую позицию. 
+
+</p>
+<p> 
+А пока приходится довольствоваться новыми версиями операционных систем:
+</p>
+
+<h2>Автомобили</h2>
+<p>Главная новинка недели — новенький S-Class. 
+Потрясающая машина, которая точно станет популярной:
+</p>
+""";
+
 final videoPost = SimplePost(
   id: 1,
   header: 'Делаю приложение как у Wylsacom',
@@ -29,11 +50,12 @@ final contestPost2 = SimplePost(
 
 final newsPost1 = SimplePost(
   id: 4,
-  header: 'Началась распродажа смартфонов OPPPO с кешбэком',
+  header: 'Новости Aplle - утечки, релизы',
   subHeader: 'Все любят скидки.',
   image: 'assets/laptop2.jpg',
   postType: PostType.News,
   createdDate: DateTime.now().add(Duration(days: -1)),
+  content: v1content + v1content + v1content,
 );
 final newsPost2 = SimplePost(
   id: 5,
@@ -45,9 +67,9 @@ final newsPost2 = SimplePost(
 );
 
 final List<SimplePost> somePosts = [
+  newsPost1,
   videoPost,
   contestPost,
-  newsPost1,
   newsPost2,
 ];
 
@@ -61,8 +83,8 @@ final List<SimplePost> someContest = [
 ];
 
 final List<SimplePost> allData = [
+  newsPost1,
   videoPost,
   contestPost,
-  newsPost1,
   newsPost2,
 ];

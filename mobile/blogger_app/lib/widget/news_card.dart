@@ -1,4 +1,5 @@
 import 'package:blogger_app/model/constants.dart';
+import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/card.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +10,14 @@ class NewsCard extends StatefulWidget {
   final String subHeader;
   final String image;
   final DateTime createdDate;
-  NewsCard({this.header, this.subHeader, this.image, this.createdDate});
+
+  final String content;
+  NewsCard(
+      {this.header,
+      this.subHeader,
+      this.image,
+      this.createdDate,
+      this.content});
   @override
   _NewsCardState createState() => _NewsCardState();
 }
@@ -25,7 +33,13 @@ class _NewsCardState extends State<NewsCard> {
       showBackgroundImage: true,
       height: 380,
       onTap: () {
-        Navigator.pushNamed(context, '/details/');
+        Navigator.pushNamed(context, '/details/',
+            arguments: DetailsPageArgument(
+              title: widget.header,
+              subHeader: widget.subHeader,
+              content: widget.content,
+              date: widget.createdDate,
+            ));
       },
       child: Padding(
         padding: kCardPadding,
