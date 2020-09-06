@@ -9,7 +9,8 @@ class SubHeaderWithTime extends StatelessWidget {
   final bool showAvatar;
   final bool greyColor;
 
-  SubHeaderWithTime({this.text, this.date, this.showAvatar, this.greyColor});
+  SubHeaderWithTime(
+      {this.text, this.date, this.showAvatar, this.greyColor = false});
 
   @override
   Widget build(BuildContext context) {

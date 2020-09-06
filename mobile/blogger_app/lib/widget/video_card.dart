@@ -91,29 +91,8 @@ class _VideoCardState extends State<VideoCard> {
                       text: 'Hi Pro!',
                       date: widget.createdDate,
                       showAvatar: true,
+                      greyColor: true,
                     ),
-                    Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          radius: 10,
-                        ),
-                        SizedBox(
-                          width: kPaddingVerticalSize,
-                        ),
-                        Text(
-                          'Hi Pro!',
-                          style: kVideoCardChanelTitleStyle,
-                        ),
-                        Text(
-                          '  •  ',
-                          style: kVideoCardChanelTitleStyle,
-                        ),
-                        Text(
-                          timeago.format(widget.createdDate, locale: 'ru'),
-                          style: kVideoCardChanelTitleStyle,
-                        )
-                      ],
-                    )
                   ],
                 ),
               ),
