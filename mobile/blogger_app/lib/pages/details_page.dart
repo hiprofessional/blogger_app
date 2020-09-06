@@ -58,9 +58,6 @@ class _DetailsPageState extends State<DetailsPage> {
                         args.subHeader,
                         style: kDetailsSubTitleStyle,
                       ),
-                      SizedBox(
-                        height: kPaddingVerticalSize * 2,
-                      ),
                     ],
                   ),
                 ),
