@@ -1,5 +1,5 @@
 //import 'package:flutter/material.dart';
-import 'package:blogger_app/pages/details_page.dart';
+import 'package:blogger_app/pages/details_page/news_details_page.dart';
 import 'package:blogger_app/pages/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 

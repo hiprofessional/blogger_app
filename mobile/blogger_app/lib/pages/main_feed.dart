@@ -57,6 +57,7 @@ class _MainFeedState extends State<MainFeed> {
             subHeader: e.subHeader,
             image: e.image,
             createdDate: e.createdDate,
+            content: e.content,
           );
         case PostType.Contest:
           return ContestCard(

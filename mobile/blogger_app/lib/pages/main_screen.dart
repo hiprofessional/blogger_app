@@ -1,5 +1,6 @@
 import 'package:blogger_app/pages/contest_feed.dart';
-import 'package:blogger_app/pages/details_page.dart';
+import 'package:blogger_app/pages/details_page/news_details_page.dart';
+import 'package:blogger_app/pages/details_page/video_details_page.dart';
 import 'package:blogger_app/pages/main_feed.dart';
 import 'package:blogger_app/pages/videos_feed.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,28 +37,30 @@ class _MainScreenState extends State<MainScreen> {
             return CupertinoTabView(
               builder: (context) => MainFeed(),
               routes: {
-                '/details/': (context) => DetailsPage(),
+                '/details/news': (context) => NewsDetailsPage(),
+                '/details/video': (context) => VideoDetailsPage(),
+//                '/details/news': (context) => NewsDetailsPage(),
               },
             );
           case 1:
             return CupertinoTabView(
               builder: (context) => ContestFeed(),
               routes: {
-                '/details/': (context) => DetailsPage(),
+                '/details/': (context) => NewsDetailsPage(),
               },
             );
           case 2:
             return CupertinoTabView(
               builder: (context) => VideosFeed(),
               routes: {
-                '/details/': (context) => DetailsPage(),
+                '/details/video': (context) => VideoDetailsPage(),
               },
             );
           default:
             return CupertinoTabView(
               builder: (context) => MainFeed(),
               routes: {
-                '/details/': (context) => DetailsPage(),
+                '/details/': (context) => NewsDetailsPage(),
               },
             );
         }

@@ -33,7 +33,7 @@ class _NewsCardState extends State<NewsCard> {
       showBackgroundImage: true,
       height: 380,
       onTap: () {
-        Navigator.pushNamed(context, '/details/',
+        Navigator.pushNamed(context, '/details/news',
             arguments: DetailsPageArgument(
               title: widget.header,
               subHeader: widget.subHeader,

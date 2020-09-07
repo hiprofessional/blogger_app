@@ -1,5 +1,6 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/widget/card.dart';
+import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,15 @@ class VideoCard extends StatefulWidget {
   final String subHeader;
   final String image;
   final DateTime createdDate;
+  final String content;
 
-  VideoCard({this.header, this.subHeader, this.image, this.createdDate});
+  VideoCard({
+    this.header,
+    this.subHeader,
+    this.image,
+    this.createdDate,
+    this.content,
+  });
   @override
   _VideoCardState createState() => _VideoCardState();
 }
@@ -25,7 +33,13 @@ class _VideoCardState extends State<VideoCard> {
       subHeader: widget.subHeader,
       showBackgroundImage: false,
       onTap: () {
-        Navigator.pushNamed(context, '/details/');
+        Navigator.pushNamed(context, '/details/video',
+            arguments: DetailsPageArgument(
+              title: widget.header,
+              subHeader: widget.subHeader,
+              content: widget.content,
+              date: widget.createdDate,
+            ));
       },
       height: 300,
       child: Column(

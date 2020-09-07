@@ -1,5 +1,6 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/model/details_page_constants.dart';
+import 'package:blogger_app/widget/details/small_card_with_link.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,18 +9,17 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/html_parser.dart';
 import 'package:flutter_html/style.dart';
 
-class DetailsPage extends StatefulWidget {
+class NewsDetailsPage extends StatefulWidget {
 //  final String content;
 
   @override
-  _DetailsPageState createState() => _DetailsPageState();
+  _NewsDetailsPageState createState() => _NewsDetailsPageState();
 }
 
-class _DetailsPageState extends State<DetailsPage> {
+class _NewsDetailsPageState extends State<NewsDetailsPage> {
   @override
   Widget build(BuildContext context) {
     final DetailsPageArgument args = ModalRoute.of(context).settings.arguments;
-    var fullWidth = MediaQuery.of(context).size.width;
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: CupertinoPageScaffold(
@@ -86,11 +86,20 @@ class _DetailsPageState extends State<DetailsPage> {
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Image(
-                          width: fullWidth * 8,
                           image: AssetImage(attributes['src']),
                         ),
                       );
                     },
+                    'my-link':
+                        (RenderContext context, Widget child, attributes, _) {
+                      return SmallCardWithLink(
+                        parsedChild: child,
+                        attributes: attributes,
+                      );
+                    },
+//                <my-link data-title='Продаю свою Audi A4 после того как увидел новую'
+//                data-id='5'
+//                data-img='assets/laptop.jpg'></my-link>
                   },
                 ),
               ],

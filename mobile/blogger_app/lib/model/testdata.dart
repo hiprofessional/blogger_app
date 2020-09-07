@@ -8,6 +8,9 @@ var v1content = """
 Видимо, это затишье перед бурей, когда Apple выпустит 
 целый ворох новинок. 
 </p>
+<my-link data-title='Продаю свою Audi A4 после того как увидел новую'
+data-id='5'
+data-img='assets/laptop.jpg'></my-link>
 <p>
 Даты презентации или презентаций пока нет, 
 так что все мы заняли выжидающую позицию. 
@@ -30,6 +33,7 @@ final videoPost = SimplePost(
   image: 'assets/mask.png',
   postType: PostType.Video,
   createdDate: DateTime.now().add(Duration(minutes: -2)),
+  content: 'https://youtu.be/jOuvnGlCkG8',
 );
 final contestPost = SimplePost(
   id: 2,
