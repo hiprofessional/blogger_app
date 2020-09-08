@@ -11,8 +11,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  final GlobalKey<NavigatorState> videoTabNavKey = GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> contestTabNavKey =
+      GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> newsTabNavKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
+    int currentIndex = 0;
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: [
@@ -29,12 +35,30 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(CupertinoIcons.video_camera),
           ),
         ],
+        onTap: (index) {
+          // back home only if not switching tab
+          if (currentIndex == index) {
+            switch (index) {
+              case 0:
+                newsTabNavKey.currentState.popUntil((r) => r.isFirst);
+                break;
+              case 1:
+                contestTabNavKey.currentState.popUntil((r) => r.isFirst);
+                break;
+              case 2:
+                videoTabNavKey.currentState.popUntil((r) => r.isFirst);
+                break;
+            }
+          }
+          currentIndex = index;
+        },
       ),
       resizeToAvoidBottomInset: false,
       tabBuilder: (context, index) {
         switch (index) {
           case 0:
             return CupertinoTabView(
+              navigatorKey: newsTabNavKey,
               builder: (context) => MainFeed(),
               routes: {
                 '/details/news': (context) => NewsDetailsPage(),
@@ -44,6 +68,7 @@ class _MainScreenState extends State<MainScreen> {
             );
           case 1:
             return CupertinoTabView(
+              navigatorKey: contestTabNavKey,
               builder: (context) => ContestFeed(),
               routes: {
                 '/details/': (context) => NewsDetailsPage(),
@@ -51,6 +76,7 @@ class _MainScreenState extends State<MainScreen> {
             );
           case 2:
             return CupertinoTabView(
+              navigatorKey: videoTabNavKey,
               builder: (context) => VideosFeed(),
               routes: {
                 '/details/video': (context) => VideoDetailsPage(),
@@ -58,6 +84,7 @@ class _MainScreenState extends State<MainScreen> {
             );
           default:
             return CupertinoTabView(
+//              navigatorKey: newsTabNavKey,
               builder: (context) => MainFeed(),
               routes: {
                 '/details/': (context) => NewsDetailsPage(),
