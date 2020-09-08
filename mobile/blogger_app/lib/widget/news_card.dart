@@ -10,6 +10,7 @@ class NewsCard extends StatefulWidget {
   final String subHeader;
   final String image;
   final DateTime createdDate;
+  final int id;
 
   final String content;
   NewsCard(
@@ -17,6 +18,7 @@ class NewsCard extends StatefulWidget {
       this.subHeader,
       this.image,
       this.createdDate,
+      this.id,
       this.content});
   @override
   _NewsCardState createState() => _NewsCardState();
@@ -39,6 +41,7 @@ class _NewsCardState extends State<NewsCard> {
               subHeader: widget.subHeader,
               content: widget.content,
               date: widget.createdDate,
+              id: widget.id,
             ));
       },
       child: Padding(

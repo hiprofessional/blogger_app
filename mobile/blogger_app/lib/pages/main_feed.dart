@@ -50,6 +50,7 @@ class _MainFeedState extends State<MainFeed> {
             image: e.image,
             createdDate: e.createdDate,
             content: e.content,
+            id: e.id,
           );
         case PostType.Video:
           return VideoCard(

@@ -1,5 +1,6 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/model/details_page_constants.dart';
+import 'package:blogger_app/service/feed.service.dart';
 import 'package:blogger_app/widget/details/small_card_with_link.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
@@ -17,14 +18,46 @@ class NewsDetailsPage extends StatefulWidget {
 }
 
 class _NewsDetailsPageState extends State<NewsDetailsPage> {
+  var feedService = FeedService();
+  var content = '';
+  var title = '';
+  var subHeader = '';
+  DateTime postDate;
+  var loaded = false;
+
+  void loadContentById(int id) async {
+    feedService.getPostById(id).then((value) {
+      setState(() {
+        this.content = value.content;
+        this.postDate = value.createdDate;
+        this.title = value.header;
+        this.subHeader = value.subHeader;
+        this.loaded = true;
+      });
+    });
+  }
+
+  void getParams() {
+    if (!this.loaded) {
+      final DetailsPageArgument args =
+          ModalRoute.of(context).settings.arguments;
+
+      if (this.content == null ||
+          this.content.isEmpty ||
+          this.postDate == null) {
+        loadContentById(args.id);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final DetailsPageArgument args = ModalRoute.of(context).settings.arguments;
+    getParams();
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
-          middle: Text(args.title),
+          middle: Text(this.title),
         ),
         child: SingleChildScrollView(
           child: SafeArea(
@@ -40,7 +73,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                     children: [
                       SubHeaderWithTime(
                         text: 'Тимур',
-                        date: args.date,
+                        date: this.postDate,
                         greyColor: true,
                         showAvatar: true,
                       ),
@@ -48,60 +81,64 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                         height: kPaddingVerticalSize,
                       ),
                       Text(
-                        args.title,
+                        this.title,
                         style: kVideoCardTitleStyle,
                       ),
                       SizedBox(
                         height: kPaddingVerticalSize,
                       ),
                       Text(
-                        args.subHeader,
+                        this.subHeader ?? '',
                         style: kDetailsSubTitleStyle,
                       ),
                     ],
                   ),
                 ),
-                Html(
-                  data: args.content,
-                  style: {
-                    '*': Style(
-                      margin: EdgeInsets.all(0),
-                      padding: EdgeInsets.all(0),
-                    ),
-                    'h2': Style(
-                      margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
-                    ),
-                    'p': Style(
-                      margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      fontSize: FontSize(16),
-                      textAlign: TextAlign.justify,
-                    ),
-                    'img': Style(
-                      margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                    ),
-                  },
-                  customRender: {
-                    'img':
-                        (RenderContext context, Widget child, attributes, _) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: Image(
-                          image: AssetImage(attributes['src']),
-                        ),
-                      );
+                if (this.content == null || this.content.isEmpty)
+                  Text('Loading...'),
+                if (this.content != null && !this.content.isEmpty)
+                  Html(
+                    data: this.content,
+                    style: {
+                      '*': Style(
+                        margin: EdgeInsets.all(0),
+                        padding: EdgeInsets.all(0),
+                      ),
+                      'h2': Style(
+                        margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
+                      ),
+                      'p': Style(
+                        margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        fontSize: FontSize(16),
+                        textAlign: TextAlign.justify,
+                      ),
+                      'img': Style(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+                      ),
                     },
-                    'my-link':
-                        (RenderContext context, Widget child, attributes, _) {
-                      return SmallCardWithLink(
-                        parsedChild: child,
-                        attributes: attributes,
-                      );
-                    },
+                    customRender: {
+                      'img':
+                          (RenderContext context, Widget child, attributes, _) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Image(
+                            image: AssetImage(attributes['src']),
+                          ),
+                        );
+                      },
+                      'my-link':
+                          (RenderContext context, Widget child, attributes, _) {
+                        return SmallCardWithLink(
+                          parsedChild: child,
+                          attributes: attributes,
+                        );
+                      },
 //                <my-link data-title='Продаю свою Audi A4 после того как увидел новую'
 //                data-id='5'
 //                data-img='assets/laptop.jpg'></my-link>
-                  },
-                ),
+                    },
+                  ),
               ],
             ),
           ),

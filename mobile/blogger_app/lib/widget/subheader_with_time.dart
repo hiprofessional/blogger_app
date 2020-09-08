@@ -9,8 +9,12 @@ class SubHeaderWithTime extends StatelessWidget {
   final bool showAvatar;
   final bool greyColor;
 
-  SubHeaderWithTime(
-      {this.text, this.date, this.showAvatar = false, this.greyColor = false});
+  SubHeaderWithTime({
+    this.text,
+    this.date,
+    this.showAvatar = false,
+    this.greyColor = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +43,13 @@ class SubHeaderWithTime extends StatelessWidget {
               ? kVideoCardChanelTitleStyle
               : kNewsCardTypeTitleStyle,
         ),
-        Text(
-          timeago.format(this.date, locale: 'ru'),
-          style: this.greyColor
-              ? kVideoCardChanelTitleStyle
-              : kNewsCardTypeTitleStyle,
-        )
+        if (this.date != null)
+          Text(
+            timeago.format(this.date, locale: 'ru'),
+            style: this.greyColor
+                ? kVideoCardChanelTitleStyle
+                : kNewsCardTypeTitleStyle,
+          )
       ],
     );
   }

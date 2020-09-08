@@ -10,6 +10,7 @@ var v1content = """
 </p>
 <my-link data-title='Продаю свою Audi A4 после того как увидел новую'
 data-id='5'
+data-posttype='0'
 data-img='assets/laptop.jpg'></my-link>
 <p>
 Даты презентации или презентаций пока нет, 
@@ -66,11 +67,13 @@ final newsPost1 = SimplePost(
 );
 final newsPost2 = SimplePost(
   id: 5,
-  header: 'Продаю свою Audi A4 после того как увидел новую',
+  header:
+      'Продаю свою Audi A4 после того как увидел новую Продаю свою Audi A4 после того как увидел новую',
   subHeader: 'WAG еще торт.',
   image: 'assets/laptop.jpg',
   postType: PostType.News,
   createdDate: DateTime.now().add(Duration(days: -2)),
+  content: '<p>не продаю</p>',
 );
 
 final List<SimplePost> somePosts = [
