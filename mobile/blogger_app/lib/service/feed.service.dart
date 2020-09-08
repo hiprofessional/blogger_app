@@ -6,6 +6,7 @@ import 'package:blogger_app/model/post.dart';
 
 class FeedService {
   Future<SimplePost> getPostById(int id) async {
+    print('getpost by id = $id');
     return Future.delayed(
       Duration(milliseconds: 100),
       () => allData.singleWhere((el) => el.id == id),

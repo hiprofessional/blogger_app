@@ -38,15 +38,21 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   }
 
   void getParams() {
-    if (!this.loaded) {
-      final DetailsPageArgument args =
-          ModalRoute.of(context).settings.arguments;
+    final DetailsPageArgument args = ModalRoute.of(context).settings.arguments;
 
-      if (this.content == null ||
-          this.content.isEmpty ||
-          this.postDate == null) {
+    if (!this.loaded) {
+      if (args.content != '' && args.content != null) {
+        this.content = args.content;
+        this.postDate = args.date;
+        this.title = args.title;
+        this.subHeader = args.subHeader;
+        this.loaded = true;
+      } else {
         loadContentById(args.id);
       }
+//      if (this.content == null ||
+//          this.content.isEmpty ||
+//          this.postDate == null)
     }
   }
 
