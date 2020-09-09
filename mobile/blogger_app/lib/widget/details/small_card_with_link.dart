@@ -54,55 +54,60 @@ class SmallCardWithLink extends StatelessWidget {
         ),
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         height: cardHeight,
-        child: Row(
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(kSmallBorderRadius),
-                  bottomLeft: Radius.circular(kSmallBorderRadius),
-                ),
-                child: Image(
-                  image: AssetImage(img),
-                  height: 150,
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                width: 100,
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Новость'.toUpperCase(),
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff999999),
-                        )
-                        // kDetailsSubTitleStyle,
-                        ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(title,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        )
-                        // kSmallCardTitleStyle,
-                        ),
-                  ],
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Color(0xffeeeeee)),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(kSmallBorderRadius),
+                    bottomLeft: Radius.circular(kSmallBorderRadius),
+                  ),
+                  child: Image(
+                    image: AssetImage(img),
+                    height: 150,
+                    fit: BoxFit.fitHeight,
+                  ),
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                flex: 3,
+                child: Container(
+                  width: 100,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Новость'.toUpperCase(),
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff999999),
+                          )
+                          // kDetailsSubTitleStyle,
+                          ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(title,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          )
+                          // kSmallCardTitleStyle,
+                          ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
