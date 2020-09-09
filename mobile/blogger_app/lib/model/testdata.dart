@@ -26,6 +26,9 @@ data-img='assets/laptop.jpg'></my-link>
 Потрясающая машина, которая точно станет популярной:
 </p>
 </div>
+<next-post data-img='assets/laptop.jpg' 
+data-id='5' data-posttype='0'
+data-title='Продаю свою Audi A4 после того как увидел новую'></next-post>
 """;
 
 final videoPost = SimplePost(

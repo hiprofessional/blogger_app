@@ -1,6 +1,7 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/model/details_page_constants.dart';
 import 'package:blogger_app/service/feed.service.dart';
+import 'package:blogger_app/widget/details/next_post_card.dart';
 import 'package:blogger_app/widget/details/small_card_with_link.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
@@ -163,9 +164,13 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                             attributes: attributes,
                           );
                         },
-//                <my-link data-title='Продаю свою Audi A4 после того как увидел новую'
-//                data-id='5'
-//                data-img='assets/laptop.jpg'></my-link>
+                        'next-post': (RenderContext context, Widget child,
+                            attributes, _) {
+                          return NextPostCard(
+                            parsedChild: child,
+                            attributes: attributes,
+                          );
+                        },
                       },
                     ),
                 ],
