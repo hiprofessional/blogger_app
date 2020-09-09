@@ -66,7 +66,7 @@ final newsPost1 = SimplePost(
   image: 'assets/laptop2.jpg',
   postType: PostType.News,
   createdDate: DateTime.now().add(Duration(days: -1)),
-  content: v1content + v1content + v1content,
+  content: v1content,
 );
 final newsPost2 = SimplePost(
   id: 5,
