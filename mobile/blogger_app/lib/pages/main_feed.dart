@@ -86,38 +86,40 @@ class _MainFeedState extends State<MainFeed> {
     var widgets = getWidgetsForPosts(this.posts);
     return SafeArea(
       child: CupertinoPageScaffold(
-        child: CustomScrollView(
-          slivers: <Widget>[
-            CupertinoSliverRefreshControl(
-              onRefresh: () {
-                return Future.delayed(const Duration(seconds: 3));
-              },
-            ),
-            new SliverSafeArea(
-              top: true,
-              sliver: new SliverList(
-                delegate: new SliverChildBuilderDelegate(
-                  (context, index) {
-                    return header[index];
-                  },
-                  childCount: header.length,
-                ),
+        child: CupertinoScrollbar(
+          child: CustomScrollView(
+            slivers: <Widget>[
+              CupertinoSliverRefreshControl(
+                onRefresh: () {
+                  return Future.delayed(const Duration(seconds: 3));
+                },
               ),
-            ),
-            if (this.loading) _beforeDataLoaded(),
-            if (!this.loading)
               new SliverSafeArea(
                 top: true,
                 sliver: new SliverList(
                   delegate: new SliverChildBuilderDelegate(
                     (context, index) {
-                      return widgets[index];
+                      return header[index];
                     },
-                    childCount: widgets.length,
+                    childCount: header.length,
                   ),
                 ),
               ),
-          ],
+              if (this.loading) _beforeDataLoaded(),
+              if (!this.loading)
+                new SliverSafeArea(
+                  top: true,
+                  sliver: new SliverList(
+                    delegate: new SliverChildBuilderDelegate(
+                      (context, index) {
+                        return widgets[index];
+                      },
+                      childCount: widgets.length,
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

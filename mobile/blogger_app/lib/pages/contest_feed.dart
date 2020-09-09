@@ -27,25 +27,27 @@ class _ContestFeedState extends State<ContestFeed> {
 
     return SafeArea(
       child: CupertinoPageScaffold(
-        child: CustomScrollView(
-          slivers: <Widget>[
-            new CupertinoSliverRefreshControl(
-              onRefresh: () {
-                return Future.delayed(const Duration(seconds: 3));
-              },
-            ),
-            new SliverSafeArea(
-              top: true,
-              sliver: new SliverList(
-                delegate: new SliverChildBuilderDelegate(
-                  (context, index) {
-                    return widgets[index];
-                  },
-                  childCount: widgets.length,
+        child: CupertinoScrollbar(
+          child: CustomScrollView(
+            slivers: <Widget>[
+              new CupertinoSliverRefreshControl(
+                onRefresh: () {
+                  return Future.delayed(const Duration(seconds: 3));
+                },
+              ),
+              new SliverSafeArea(
+                top: true,
+                sliver: new SliverList(
+                  delegate: new SliverChildBuilderDelegate(
+                    (context, index) {
+                      return widgets[index];
+                    },
+                    childCount: widgets.length,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
