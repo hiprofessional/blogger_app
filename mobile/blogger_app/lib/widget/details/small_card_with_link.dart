@@ -68,13 +68,13 @@ class SmallCardWithLink extends StatelessWidget {
                   ),
                   child: Image(
                     image: AssetImage(img),
-                    height: 150,
+                    height: cardHeight,
                     fit: BoxFit.fitHeight,
                   ),
                 ),
               ),
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: Container(
                   width: 100,
                   padding: EdgeInsets.symmetric(horizontal: 20),
