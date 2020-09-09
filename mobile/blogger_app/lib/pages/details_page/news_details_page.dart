@@ -50,9 +50,6 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
       } else {
         loadContentById(args.id);
       }
-//      if (this.content == null ||
-//          this.content.isEmpty ||
-//          this.postDate == null)
     }
   }
 
@@ -63,8 +60,8 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
-          middle: Text(this.title),
-        ),
+//          middle: Text(this.title),
+            ),
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(
