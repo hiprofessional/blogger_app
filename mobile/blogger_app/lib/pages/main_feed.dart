@@ -88,7 +88,7 @@ class _MainFeedState extends State<MainFeed> {
       child: CupertinoPageScaffold(
         child: CustomScrollView(
           slivers: <Widget>[
-            new CupertinoSliverRefreshControl(
+            CupertinoSliverRefreshControl(
               onRefresh: () {
                 return Future.delayed(const Duration(seconds: 3));
               },

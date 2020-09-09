@@ -101,7 +101,9 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                   ),
                 ),
                 if (this.content == null || this.content.isEmpty)
-                  Text('Loading...'),
+                  Center(
+                    child: CupertinoActivityIndicator(),
+                  ),
                 if (this.content != null && !this.content.isEmpty)
                   Html(
                     data: this.content,
