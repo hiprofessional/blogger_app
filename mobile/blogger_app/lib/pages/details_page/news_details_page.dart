@@ -56,9 +56,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   @override
   Widget build(BuildContext context) {
     getParams();
-    var sizedBoxInHeader = SizedBox(
-      width: 20,
-    );
+
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: CupertinoPageScaffold(
@@ -66,23 +64,26 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
           trailing: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Icon(
-                CupertinoIcons.search,
-                size: 20,
-              ),
-              sizedBoxInHeader,
-              Icon(
-                CupertinoIcons.share,
-                size: 20,
-              ),
-              sizedBoxInHeader,
-              Icon(
-                CupertinoIcons.bookmark,
-                size: 20,
-              )
+              CupertinoButton(
+                  padding: EdgeInsets.all(0),
+                  child: Icon(
+                    CupertinoIcons.search,
+                  ),
+                  onPressed: () {}),
+              CupertinoButton(
+                  padding: EdgeInsets.all(0),
+                  child: Icon(
+                    CupertinoIcons.share,
+                  ),
+                  onPressed: () {}),
+              CupertinoButton(
+                  padding: EdgeInsets.all(0),
+                  child: Icon(
+                    CupertinoIcons.bookmark,
+                  ),
+                  onPressed: () {}),
             ],
           ),
-//          middle: Text(this.title),
         ),
         child: CupertinoScrollbar(
           child: SingleChildScrollView(
