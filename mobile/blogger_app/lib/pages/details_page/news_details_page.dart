@@ -56,95 +56,119 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   @override
   Widget build(BuildContext context) {
     getParams();
+    var sizedBoxInHeader = SizedBox(
+      width: 20,
+    );
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
+          trailing: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Icon(
+                CupertinoIcons.search,
+                size: 20,
+              ),
+              sizedBoxInHeader,
+              Icon(
+                CupertinoIcons.share,
+                size: 20,
+              ),
+              sizedBoxInHeader,
+              Icon(
+                CupertinoIcons.bookmark,
+                size: 20,
+              )
+            ],
+          ),
 //          middle: Text(this.title),
-            ),
-        child: SingleChildScrollView(
-          child: SafeArea(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  padding: kPaddingFromScreenEdge,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SubHeaderWithTime(
-                        text: 'Тимур',
-                        date: this.postDate,
-                        greyColor: true,
-                        showAvatar: true,
-                      ),
-                      SizedBox(
-                        height: kPaddingVerticalSize,
-                      ),
-                      Text(
-                        this.title,
-                        style: kVideoCardTitleStyle,
-                      ),
-                      SizedBox(
-                        height: kPaddingVerticalSize,
-                      ),
-                      Text(
-                        this.subHeader ?? '',
-                        style: kDetailsSubTitleStyle,
-                      ),
-                    ],
+        ),
+        child: CupertinoScrollbar(
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 15,
                   ),
-                ),
-                if (this.content == null || this.content.isEmpty)
-                  Center(
-                    child: CupertinoActivityIndicator(),
+                  Container(
+                    padding: kPaddingFromScreenEdge,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SubHeaderWithTime(
+                          text: 'Тимур',
+                          date: this.postDate,
+                          greyColor: true,
+                          showAvatar: true,
+                        ),
+                        SizedBox(
+                          height: kPaddingVerticalSize,
+                        ),
+                        Text(
+                          this.title,
+                          style: kVideoCardTitleStyle,
+                        ),
+                        SizedBox(
+                          height: kPaddingVerticalSize,
+                        ),
+                        Text(
+                          this.subHeader ?? '',
+                          style: kDetailsSubTitleStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                if (this.content != null && !this.content.isEmpty)
-                  Html(
-                    data: this.content,
-                    style: {
-                      '*': Style(
-                        margin: EdgeInsets.all(0),
-                        padding: EdgeInsets.all(0),
-                      ),
-                      'h2': Style(
-                        margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
-                      ),
-                      'p': Style(
-                        margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                        fontSize: FontSize(16),
-                        textAlign: TextAlign.justify,
-                      ),
-                      'img': Style(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                      ),
-                    },
-                    customRender: {
-                      'img':
-                          (RenderContext context, Widget child, attributes, _) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: Image(
-                            image: AssetImage(attributes['src']),
-                          ),
-                        );
+                  if (this.content == null || this.content.isEmpty)
+                    Center(
+                      child: CupertinoActivityIndicator(),
+                    ),
+                  if (this.content != null && !this.content.isEmpty)
+                    Html(
+                      data: this.content,
+                      style: {
+                        '*': Style(
+                          margin: EdgeInsets.all(0),
+                          padding: EdgeInsets.all(0),
+                        ),
+                        'h2': Style(
+                          margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
+                        ),
+                        'p': Style(
+                          margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          fontSize: FontSize(16),
+                          textAlign: TextAlign.justify,
+                        ),
+                        'img': Style(
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+                        ),
                       },
-                      'my-link':
-                          (RenderContext context, Widget child, attributes, _) {
-                        return SmallCardWithLink(
-                          parsedChild: child,
-                          attributes: attributes,
-                        );
-                      },
+                      customRender: {
+                        'img': (RenderContext context, Widget child, attributes,
+                            _) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            child: Image(
+                              image: AssetImage(attributes['src']),
+                            ),
+                          );
+                        },
+                        'my-link': (RenderContext context, Widget child,
+                            attributes, _) {
+                          return SmallCardWithLink(
+                            parsedChild: child,
+                            attributes: attributes,
+                          );
+                        },
 //                <my-link data-title='Продаю свою Audi A4 после того как увидел новую'
 //                data-id='5'
 //                data-img='assets/laptop.jpg'></my-link>
-                    },
-                  ),
-              ],
+                      },
+                    ),
+                ],
+              ),
             ),
           ),
         ),
