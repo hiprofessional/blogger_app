@@ -67,9 +67,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
             children: [
               CupertinoButton(
                   padding: EdgeInsets.all(0),
-                  child: Icon(
-                    CupertinoIcons.search,
-                  ),
+                  child: Text('Aa'),
                   onPressed: () {}),
               CupertinoButton(
                   padding: EdgeInsets.all(0),
