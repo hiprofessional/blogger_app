@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/html_parser.dart';
 import 'package:flutter_html/style.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class VideoDetailsPage extends StatefulWidget {
   @override
@@ -86,10 +87,10 @@ class _VideoDetailsPageState extends State<VideoDetailsPage> {
                           fontSize: FontSize(16),
                           textAlign: TextAlign.justify,
                         ),
-                        'img': Style(
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                        ),
+                      },
+                      onLinkTap: (url) {
+                        print(url);
+                        _launchURL(url);
                       },
                     ),
                   ],
@@ -100,5 +101,13 @@ class _VideoDetailsPageState extends State<VideoDetailsPage> {
         ),
       ),
     );
+  }
+
+  _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
