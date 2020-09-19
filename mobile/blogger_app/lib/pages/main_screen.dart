@@ -63,7 +63,6 @@ class _MainScreenState extends State<MainScreen> {
               routes: {
                 '/details/news': (context) => NewsDetailsPage(),
                 '/details/video': (context) => VideoDetailsPage(),
-//                '/details/news': (context) => NewsDetailsPage(),
               },
             );
           case 1:

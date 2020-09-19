@@ -37,7 +37,7 @@ final videoPost = SimplePost(
   image: 'assets/mask.png',
   postType: PostType.Video,
   createdDate: DateTime.now().add(Duration(minutes: -2)),
-  content: 'https://youtu.be/jOuvnGlCkG8',
+  content: 'jOuvnGlCkG8',
 );
 final contestPost = SimplePost(
   id: 2,
