@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/html_parser.dart';
 import 'package:flutter_html/style.dart';
+import 'package:popup_menu/popup_menu.dart';
 
 class NewsDetailsPage extends StatefulWidget {
 //  final String content;
@@ -57,6 +58,31 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   @override
   Widget build(BuildContext context) {
     getParams();
+    PopupMenu.context = context;
+    PopupMenu menu = PopupMenu(
+//      backgroundColor: Color(0xfffafafa),
+      items: [
+        MenuItem(
+          title: 'Aa',
+          textStyle: TextStyle(
+            color: Color(0xffc5c5c5),
+            fontSize: 16,
+          ),
+        ),
+        MenuItem(
+          title: 'Aa',
+          textStyle: TextStyle(
+            color: Color(0xffc5c5c5),
+            fontSize: 22,
+          ),
+        ),
+      ],
+      onClickMenu: (pr) {},
+      stateChanged: (pr) {},
+      onDismiss: () {},
+    );
+
+    GlobalKey fontKey = GlobalKey();
 
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
@@ -66,9 +92,12 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               CupertinoButton(
+                  key: fontKey,
                   padding: EdgeInsets.all(0),
                   child: Text('Aa'),
-                  onPressed: () {}),
+                  onPressed: () {
+                    menu.show(widgetKey: fontKey);
+                  }),
               CupertinoButton(
                   padding: EdgeInsets.all(0),
                   child: Icon(
