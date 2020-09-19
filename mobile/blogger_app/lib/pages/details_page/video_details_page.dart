@@ -5,6 +5,9 @@ import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/html_parser.dart';
+import 'package:flutter_html/style.dart';
 
 class VideoDetailsPage extends StatefulWidget {
   @override
@@ -45,29 +48,53 @@ class _VideoDetailsPageState extends State<VideoDetailsPage> {
             SizedBox(
               height: kPaddingVerticalSize,
             ),
-            SingleChildScrollView(
-              child: Container(
-                padding: kPaddingFromScreenEdge,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: kPaddingVerticalSize,
-                    ),
-                    Text(
-                      args.title,
-                      style: kVideoCardTitleStyle,
-                    ),
-                    SizedBox(
-                      height: kPaddingVerticalSize,
-                    ),
+            CupertinoScrollbar(
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: kPaddingFromScreenEdge,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: kPaddingVerticalSize,
+                      ),
+                      Text(
+                        args.title,
+                        style: kVideoCardTitleStyle,
+                      ),
+                      SizedBox(
+                        height: kPaddingVerticalSize,
+                      ),
 //                    SubHeaderWithTime(
 //                      text: 'Тимур',
 //                      date: args.date,
 //                      greyColor: true,
 //                      showAvatar: true,
 //                    ),
-                  ],
+
+                      Html(
+                        data: args.description,
+                        style: {
+                          '*': Style(
+                            margin: EdgeInsets.all(0),
+                            padding: EdgeInsets.all(0),
+                          ),
+                          'h2': Style(
+                            margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                          ),
+                          'p': Style(
+                            margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            fontSize: FontSize(16),
+                            textAlign: TextAlign.justify,
+                          ),
+                          'img': Style(
+                            margin: EdgeInsets.symmetric(
+                                horizontal: 0, vertical: 10),
+                          ),
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

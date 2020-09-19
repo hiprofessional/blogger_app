@@ -12,6 +12,7 @@ class VideoCard extends StatefulWidget {
   final String image;
   final DateTime createdDate;
   final String content;
+  final String description;
 
   VideoCard({
     this.header,
@@ -19,6 +20,7 @@ class VideoCard extends StatefulWidget {
     this.image,
     this.createdDate,
     this.content,
+    this.description,
   });
   @override
   _VideoCardState createState() => _VideoCardState();
@@ -39,6 +41,7 @@ class _VideoCardState extends State<VideoCard> {
               subHeader: widget.subHeader,
               content: widget.content,
               date: widget.createdDate,
+              description: widget.description,
             ));
       },
       height: 300,

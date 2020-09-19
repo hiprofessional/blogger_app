@@ -31,6 +31,39 @@ data-id='5' data-posttype='0'
 data-title='Продаю свою Audi A4 после того как увидел новую'></next-post>
 """;
 
+var descriptionForVideo = """
+<p>
+Захотелось сделать для канала приложение как у Wylsacom.
+</p>
+<p>
+Разработка будет кроссплатформенной - думаю Flutter должен неплохо в этом помочь.
+</p>
+<p>В этой серии сделаю страницы со списками новостей, конкурсов, видео.
+</p>
+<p>Приложение выглядит лаконичным, и поэтому скрывает в себе очень много мелких деталей. Думаю, они помогут лучше узнать фреймворк Flutter. 
+
+</p>
+<p>И пока не знаю стоит ли делать розыгрыши. Что думаете?
+</p>
+<p>
+- - - - - - - - - - - - - - - - - - - - - -
+</p>
+<p>
+Подписывайся, чтобы не пропустить новые ролики!
+</p>
+<p>
+GitHub:                                 https://github.com/hiprofessional
+</p>
+<p>
+Join my Discord!                 https://discord.gg/ES9PP53
+</p>
+<p>
+Instagram                            https://www.instagram.com/hi.professional/
+</p>
+<p>
+- - - - - - - - - - - - - - - - - - - - - -
+</p>
+""";
 final videoPost = SimplePost(
   id: 1,
   header: 'Делаю приложение как у Wylsacom',
@@ -38,6 +71,7 @@ final videoPost = SimplePost(
   postType: PostType.Video,
   createdDate: DateTime.now().add(Duration(minutes: -2)),
   content: 'jOuvnGlCkG8',
+  additionalDescription: descriptionForVideo,
 );
 final contestPost = SimplePost(
   id: 2,

@@ -8,6 +8,7 @@ class SimplePost {
   DateTime createdDate;
   DateTime contestFinishDate;
   bool isContestFinished;
+  String additionalDescription;
   SimplePost({
     this.id,
     this.header,
@@ -18,6 +19,7 @@ class SimplePost {
     this.createdDate,
     this.contestFinishDate,
     this.isContestFinished,
+    this.additionalDescription,
   });
 }
 
