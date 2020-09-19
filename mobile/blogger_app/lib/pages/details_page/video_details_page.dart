@@ -40,31 +40,30 @@ class _VideoDetailsPageState extends State<VideoDetailsPage> {
         ),
       ),
       child: SafeArea(
-        child: Column(
-          children: [
-            VideoPlayer(
-              sourceUrl: args.content,
-            ),
-            SizedBox(
-              height: kPaddingVerticalSize,
-            ),
-            CupertinoScrollbar(
-              child: SingleChildScrollView(
-                child: Container(
-                  padding: kPaddingFromScreenEdge,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: kPaddingVerticalSize,
-                      ),
-                      Text(
-                        args.title,
-                        style: kVideoCardTitleStyle,
-                      ),
-                      SizedBox(
-                        height: kPaddingVerticalSize,
-                      ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              VideoPlayer(
+                sourceUrl: args.content,
+              ),
+              SizedBox(
+                height: kPaddingVerticalSize,
+              ),
+              Container(
+                padding: kPaddingFromScreenEdge,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: kPaddingVerticalSize,
+                    ),
+                    Text(
+                      args.title,
+                      style: kVideoCardTitleStyle,
+                    ),
+                    SizedBox(
+                      height: kPaddingVerticalSize,
+                    ),
 //                    SubHeaderWithTime(
 //                      text: 'Тимур',
 //                      date: args.date,
@@ -72,33 +71,32 @@ class _VideoDetailsPageState extends State<VideoDetailsPage> {
 //                      showAvatar: true,
 //                    ),
 
-                      Html(
-                        data: args.description,
-                        style: {
-                          '*': Style(
-                            margin: EdgeInsets.all(0),
-                            padding: EdgeInsets.all(0),
-                          ),
-                          'h2': Style(
-                            margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
-                          ),
-                          'p': Style(
-                            margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                            fontSize: FontSize(16),
-                            textAlign: TextAlign.justify,
-                          ),
-                          'img': Style(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 0, vertical: 10),
-                          ),
-                        },
-                      ),
-                    ],
-                  ),
+                    Html(
+                      data: args.description,
+                      style: {
+                        '*': Style(
+                          margin: EdgeInsets.all(0),
+                          padding: EdgeInsets.all(0),
+                        ),
+                        'h2': Style(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                        ),
+                        'p': Style(
+                          margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                          fontSize: FontSize(16),
+                          textAlign: TextAlign.justify,
+                        ),
+                        'img': Style(
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+                        ),
+                      },
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
