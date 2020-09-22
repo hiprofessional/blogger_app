@@ -1,6 +1,6 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/model/details_page_constants.dart';
-import 'package:blogger_app/pages/details_page/video_player.dart';
+import 'package:blogger_app/widget/details/video_player.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';

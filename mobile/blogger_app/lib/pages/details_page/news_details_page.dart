@@ -4,13 +4,14 @@ import 'package:blogger_app/service/feed.service.dart';
 import 'package:blogger_app/widget/details/next_post_card.dart';
 import 'package:blogger_app/widget/details/small_card_with_link.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
+import 'package:blogger_app/widget/popover/popover_menu.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/html_parser.dart';
 import 'package:flutter_html/style.dart';
-import 'package:popup_menu/popup_menu.dart';
+//import 'package:popup_menu/popup_menu.dart';
 
 class NewsDetailsPage extends StatefulWidget {
 //  final String content;
@@ -26,6 +27,24 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   var subHeader = '';
   DateTime postDate;
   var loaded = false;
+  final List<double> textScaleFactors = [0.75, 1, 1.25, 1.5, 1.75, 2];
+  int currentScaleId = 1;
+
+  double increaseScale() {
+    if (textScaleFactors.length - 1 > currentScaleId) {
+      setState(() {
+        this.currentScaleId++;
+      });
+    }
+  }
+
+  double decreaseScale() {
+    if (currentScaleId > 0) {
+      setState(() {
+        this.currentScaleId--;
+      });
+    }
+  }
 
   void loadContentById(int id) async {
     feedService.getPostById(id).then((value) {
@@ -63,6 +82,10 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
 //      backgroundColor: Color(0xfffafafa),
       items: [
         MenuItem(
+          onTap: () {
+            print('sdfsdfsdf');
+            this.decreaseScale();
+          },
           title: 'Aa',
           textStyle: TextStyle(
             color: Color(0xffc5c5c5),
@@ -70,6 +93,9 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
           ),
         ),
         MenuItem(
+          onTap: () {
+            this.increaseScale();
+          },
           title: 'Aa',
           textStyle: TextStyle(
             color: Color(0xffc5c5c5),
@@ -77,15 +103,21 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
           ),
         ),
       ],
-      onClickMenu: (pr) {},
-      stateChanged: (pr) {},
+      onClickMenu: (MenuItemProvider item) {
+//        print(item.menuId);
+      },
+      stateChanged: (pr) {
+        print(pr ? '1212' : '6666');
+      },
       onDismiss: () {},
     );
 
     GlobalKey fontKey = GlobalKey();
 
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+      data: MediaQuery.of(context).copyWith(
+        textScaleFactor: 1,
+      ),
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
           trailing: Row(
@@ -166,7 +198,8 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                         ),
                         'p': Style(
                           margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                          fontSize: FontSize(16),
+                          fontSize: FontSize(
+                              16 * this.textScaleFactors[this.currentScaleId]),
                           textAlign: TextAlign.justify,
                         ),
                         'img': Style(
