@@ -369,7 +369,7 @@ class PopupMenu {
       onClickMenu(item);
     }
 
-    dismiss();
+//    dismiss();
   }
 
   void dismiss() {
