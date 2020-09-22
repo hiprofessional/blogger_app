@@ -28,7 +28,8 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   DateTime postDate;
   var loaded = false;
   final List<double> textScaleFactors = [0.75, 1, 1.25, 1.5, 1.75, 2];
-  int currentScaleId = 1;
+  int currentScaleId = 0;
+  var activeMenuFontColor = 0xff999999;
 
   double increaseScale() {
     if (textScaleFactors.length - 1 > currentScaleId) {
@@ -74,41 +75,38 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
     }
   }
 
+  TextStyle getStyleForButton(bool increaseBtn) {
+    double fontSize = increaseBtn ? 22 : 16;
+    return TextStyle(
+      color: Color(this.activeMenuFontColor),
+      fontSize: fontSize,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     getParams();
+
     PopupMenu.context = context;
     PopupMenu menu = PopupMenu(
-//      backgroundColor: Color(0xfffafafa),
       items: [
         MenuItem(
           onTap: () {
-            print('sdfsdfsdf');
             this.decreaseScale();
           },
           title: 'Aa',
-          textStyle: TextStyle(
-            color: Color(0xff999999),
-            fontSize: 16,
-          ),
+          textStyle: this.getStyleForButton(false),
         ),
         MenuItem(
           onTap: () {
             this.increaseScale();
           },
           title: 'Aa',
-          textStyle: TextStyle(
-            color: Color(0xff999999),
-            fontSize: 22,
-          ),
+          textStyle: this.getStyleForButton(true),
         ),
       ],
-      onClickMenu: (MenuItemProvider item) {
-//        print(item.menuId);
-      },
-      stateChanged: (pr) {
-        print(pr ? '1212' : '6666');
-      },
+      onClickMenu: (MenuItemProvider item) {},
+      stateChanged: (pr) {},
       onDismiss: () {},
     );
 
