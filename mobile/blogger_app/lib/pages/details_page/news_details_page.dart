@@ -88,7 +88,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
           },
           title: 'Aa',
           textStyle: TextStyle(
-            color: Color(0xffc5c5c5),
+            color: Color(0xff999999),
             fontSize: 16,
           ),
         ),
@@ -98,7 +98,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
           },
           title: 'Aa',
           textStyle: TextStyle(
-            color: Color(0xffc5c5c5),
+            color: Color(0xff999999),
             fontSize: 22,
           ),
         ),

@@ -42,7 +42,7 @@ class MenuItem extends MenuItemProvider {
 
   @override
   TextStyle get menuTextStyle =>
-      textStyle ?? TextStyle(color: Color(0xffc5c5c5), fontSize: 10.0);
+      textStyle ?? TextStyle(color: Color(0xff999999), fontSize: 10.0);
 
 //  @override
 //  int get menuId => id;
@@ -112,8 +112,8 @@ class PopupMenu {
     this.stateChanged = stateChanged;
     this.items = items;
     this._maxColumn = maxColumn ?? 4;
-    this._backgroundColor = backgroundColor ?? Color(0xff232323);
-    this._lineColor = lineColor ?? Color(0xff353535);
+    this._backgroundColor = backgroundColor ?? Color(0xffffffff);
+    this._lineColor = lineColor ?? Color(0xffeff0f1);
     this._highlightColor = highlightColor ?? Color(0x55000000);
     if (context != null) {
       PopupMenu.context = context;
@@ -212,6 +212,15 @@ class PopupMenu {
         child: Container(
           child: Stack(
             children: <Widget>[
+              Positioned(
+                left: 0,
+                top: 0,
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  color: Color(0x4c000000),
+                ),
+              ),
               // triangle arrow
               Positioned(
                 left: _showRect.left + _showRect.width / 2.0 - 7.5,
@@ -234,13 +243,13 @@ class PopupMenu {
                   child: Column(
                     children: <Widget>[
                       ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(12.5),
                           child: Container(
                             width: menuWidth(),
                             height: menuHeight(),
                             decoration: BoxDecoration(
                                 color: _backgroundColor,
-                                borderRadius: BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(12.5)),
                             child: Column(
                               children: _createRows(),
                             ),
@@ -472,12 +481,9 @@ class _MenuItemWidgetState extends State<_MenuItemWidget> {
           ),
           Container(
             height: 22.0,
-            child: Material(
-              color: Colors.transparent,
-              child: Text(
-                widget.item.menuTitle,
-                style: widget.item.menuTextStyle,
-              ),
+            child: Text(
+              widget.item.menuTitle,
+              style: widget.item.menuTextStyle,
             ),
           )
         ],
@@ -486,12 +492,9 @@ class _MenuItemWidgetState extends State<_MenuItemWidget> {
       // only text
       return Container(
         child: Center(
-          child: Material(
-            color: Colors.transparent,
-            child: Text(
-              widget.item.menuTitle,
-              style: widget.item.menuTextStyle,
-            ),
+          child: Text(
+            widget.item.menuTitle,
+            style: widget.item.menuTextStyle,
           ),
         ),
       );
