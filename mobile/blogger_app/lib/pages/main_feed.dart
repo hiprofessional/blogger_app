@@ -1,10 +1,10 @@
 import 'package:blogger_app/model/post.dart';
 import 'package:blogger_app/model/testdata.dart';
 import 'package:blogger_app/service/feed.service.dart';
-import 'package:blogger_app/widget/card.dart';
-import 'package:blogger_app/widget/contest_card.dart';
-import 'package:blogger_app/widget/news_card.dart';
-import 'package:blogger_app/widget/video_card.dart';
+import 'package:blogger_app/widget/card/card.dart';
+import 'package:blogger_app/widget/card/contest_card.dart';
+import 'package:blogger_app/widget/card/news_card.dart';
+import 'package:blogger_app/widget/card/video_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

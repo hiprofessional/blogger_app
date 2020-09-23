@@ -33,6 +33,7 @@ dependencies:
   flutter_html: ^1.0.2
   url_launcher: ^5.6.0
   popup_menu: ^1.0.5
+  share: ^0.6.5+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

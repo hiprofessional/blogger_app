@@ -16,8 +16,8 @@ class _VideoPlayerState extends State<VideoPlayer> {
       Completer<WebViewController>();
   final aspectRatio = 16 / 9;
   final embedYoutubeTemplate = 'https://www.youtube.com/embed/';
-  var myFile =
-      'https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1280_10MG.mp4';
+//  var myFile =
+//      'https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1280_10MG.mp4';
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
       height: height,
       child: Builder(builder: (BuildContext context) {
         return WebView(
-          initialUrl: myFile, // widget.sourceUrl,
+          initialUrl: embedYoutubeTemplate + widget.sourceUrl,
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {
             _controller.complete(webViewController);

@@ -1,7 +1,7 @@
 import 'package:blogger_app/model/post.dart';
 import 'package:blogger_app/model/testdata.dart';
-import 'package:blogger_app/widget/card.dart';
-import 'package:blogger_app/widget/contest_card.dart';
+import 'package:blogger_app/widget/card/card.dart';
+import 'package:blogger_app/widget/card/contest_card.dart';
 import 'package:flutter/cupertino.dart';
 
 class ContestFeed extends StatefulWidget {

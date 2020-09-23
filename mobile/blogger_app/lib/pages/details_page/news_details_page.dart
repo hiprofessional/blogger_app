@@ -12,6 +12,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/html_parser.dart';
 import 'package:flutter_html/style.dart';
 //import 'package:popup_menu/popup_menu.dart';
+import 'package:share/share.dart';
 
 class NewsDetailsPage extends StatefulWidget {
 //  final String content;
@@ -30,6 +31,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   final List<double> textScaleFactors = [0.75, 1, 1.25, 1.5, 1.75, 2];
   int currentScaleId = 0;
   var activeMenuFontColor = 0xff999999;
+  var currentPageUrl = 'https://example.com/post/';
 
   double increaseScale() {
     if (textScaleFactors.length - 1 > currentScaleId) {
@@ -73,6 +75,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
         loadContentById(args.id);
       }
     }
+    this.currentPageUrl = this.currentPageUrl + args.id.toString();
   }
 
   TextStyle getStyleForButton(bool increaseBtn) {
@@ -133,7 +136,9 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                   child: Icon(
                     CupertinoIcons.share,
                   ),
-                  onPressed: () {}),
+                  onPressed: () {
+                    this._onShare(context);
+                  }),
               CupertinoButton(
                   padding: EdgeInsets.all(0),
                   child: Icon(
@@ -238,5 +243,19 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
         ),
       ),
     );
+  }
+
+  _onShare(BuildContext context) async {
+    // A builder is used to retrieve the context immediately
+    // surrounding the RaisedButton.
+    //
+    // The context's `findRenderObject` returns the first
+    // RenderObject in its descendent tree when it's not
+    // a RenderObjectWidget. The RaisedButton's RenderObject
+    // has its position and size after it's built.
+    final RenderBox box = context.findRenderObject();
+
+    await Share.share(this.currentPageUrl,
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }
