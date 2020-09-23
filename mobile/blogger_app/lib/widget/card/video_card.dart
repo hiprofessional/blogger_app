@@ -44,7 +44,7 @@ class _VideoCardState extends State<VideoCard> {
               description: widget.description,
             ));
       },
-      height: 300,
+      height: 365,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,7 +54,7 @@ class _VideoCardState extends State<VideoCard> {
             children: <Widget>[
               Container(
                 width: double.infinity,
-                height: 130,
+                height: 200,
                 decoration: ShapeDecoration(
 //                  color: Colors.red,
                   image: DecorationImage(
