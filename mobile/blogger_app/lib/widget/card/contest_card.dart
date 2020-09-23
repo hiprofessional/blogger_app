@@ -1,5 +1,5 @@
 import 'package:blogger_app/model/constants.dart';
-import 'package:blogger_app/widget/card.dart';
+import 'package:blogger_app/widget/card/card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;

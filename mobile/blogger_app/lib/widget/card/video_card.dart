@@ -1,5 +1,5 @@
 import 'package:blogger_app/model/constants.dart';
-import 'package:blogger_app/widget/card.dart';
+import 'package:blogger_app/widget/card/card.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:blogger_app/widget/subheader_with_time.dart';
 import 'package:flutter/cupertino.dart';
