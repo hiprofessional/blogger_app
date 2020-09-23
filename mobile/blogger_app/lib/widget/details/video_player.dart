@@ -16,8 +16,6 @@ class _VideoPlayerState extends State<VideoPlayer> {
       Completer<WebViewController>();
   final aspectRatio = 16 / 9;
   final embedYoutubeTemplate = 'https://www.youtube.com/embed/';
-//  var myFile =
-//      'https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1280_10MG.mp4';
 
   @override
   Widget build(BuildContext context) {
