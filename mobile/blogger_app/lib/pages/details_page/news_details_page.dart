@@ -29,7 +29,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
   DateTime postDate;
   var loaded = false;
   final List<double> textScaleFactors = [0.75, 1, 1.25, 1.5, 1.75, 2];
-  int currentScaleId = 0;
+  int currentScaleId = 1;
   var activeMenuFontColor = 0xff999999;
   var currentPageUrl = 'https://example.com/post/';
 
