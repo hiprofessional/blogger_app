@@ -41,13 +41,42 @@ class _ContestDetailsPageState extends State<ContestDetailsPage> {
                   Image(
                     image: AssetImage(args.imageUrl),
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: CupertinoButton.filled(
-                      child: Text('Принять участие'),
-                      onPressed: () {},
+                  if (args.isContestFinished)
+                    SizedBox(
+                      width: double.infinity,
+                      child: CupertinoButton.filled(
+                        child: Text('Принять участие'),
+                        onPressed: () {},
+                      ),
                     ),
-                  )
+                  if (!args.isContestFinished)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Приняло участие',
+                                  style: kContestParticipateTitleStyle,
+                                ),
+                                Text(
+                                  '567',
+                                  style: kContestParticipateCountStyle,
+                                ),
+                              ],
+                            ),
+                            Text(
+                              'Итоги подведены',
+                              style: kContestParticipateSummStyle,
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
                 ],
               ),
             ),

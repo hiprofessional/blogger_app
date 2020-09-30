@@ -63,6 +63,8 @@ class _ContestCardState extends State<ContestCard> {
               content: widget.content,
               date: widget.createdDate,
               imageUrl: widget.image,
+              isContestFinished: widget.isContestFinished,
+              contestFinishDate: widget.contestFinishDate,
 //              id: widget.id,
             ));
       },

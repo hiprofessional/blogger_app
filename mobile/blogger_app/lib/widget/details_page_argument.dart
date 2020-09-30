@@ -8,6 +8,8 @@ class DetailsPageArgument {
   final int id;
   final String description;
   final String imageUrl;
+  final DateTime contestFinishDate;
+  final bool isContestFinished;
 
   final SimplePost post;
 
@@ -20,5 +22,7 @@ class DetailsPageArgument {
     this.post,
     this.description,
     this.imageUrl,
+    this.contestFinishDate,
+    this.isContestFinished,
   });
 }
