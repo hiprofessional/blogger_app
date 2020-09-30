@@ -1,4 +1,5 @@
 import 'package:blogger_app/pages/contest_feed.dart';
+import 'package:blogger_app/pages/details_page/contest_details_page.dart';
 import 'package:blogger_app/pages/details_page/news_details_page.dart';
 import 'package:blogger_app/pages/details_page/video_details_page.dart';
 import 'package:blogger_app/pages/main_feed.dart';
@@ -63,6 +64,7 @@ class _MainScreenState extends State<MainScreen> {
               routes: {
                 '/details/news': (context) => NewsDetailsPage(),
                 '/details/video': (context) => VideoDetailsPage(),
+                '/details/contest': (context) => ContestDetailsPage(),
               },
             );
           case 1:
@@ -70,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
               navigatorKey: contestTabNavKey,
               builder: (context) => ContestFeed(),
               routes: {
-                '/details/': (context) => NewsDetailsPage(),
+                '/details/contest': (context) => ContestDetailsPage(),
               },
             );
           case 2:

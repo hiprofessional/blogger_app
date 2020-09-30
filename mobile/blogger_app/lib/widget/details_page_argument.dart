@@ -7,6 +7,7 @@ class DetailsPageArgument {
   final DateTime date;
   final int id;
   final String description;
+  final String imageUrl;
 
   final SimplePost post;
 
@@ -18,5 +19,6 @@ class DetailsPageArgument {
     this.id,
     this.post,
     this.description,
+    this.imageUrl,
   });
 }

@@ -69,6 +69,7 @@ class _MainFeedState extends State<MainFeed> {
             createdDate: e.createdDate,
             contestFinishDate: e.contestFinishDate,
             isContestFinished: e.isContestFinished,
+            content: e.content,
           );
         default:
           return NewsCard(

@@ -1,5 +1,6 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/widget/card/card.dart';
+import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -11,6 +12,7 @@ class ContestCard extends StatefulWidget {
   final DateTime createdDate;
   final DateTime contestFinishDate;
   final bool isContestFinished;
+  final String content;
 
   ContestCard({
     this.header,
@@ -19,6 +21,7 @@ class ContestCard extends StatefulWidget {
     this.createdDate,
     this.contestFinishDate,
     this.isContestFinished,
+    this.content,
   });
   @override
   _ContestCardState createState() => _ContestCardState();
@@ -53,7 +56,15 @@ class _ContestCardState extends State<ContestCard> {
       showBackgroundImage: false,
       height: 320,
       onTap: () {
-        Navigator.pushNamed(context, '/details/');
+        Navigator.pushNamed(context, '/details/contest',
+            arguments: DetailsPageArgument(
+              title: widget.header,
+              subHeader: widget.subHeader,
+              content: widget.content,
+              date: widget.createdDate,
+              imageUrl: widget.image,
+//              id: widget.id,
+            ));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

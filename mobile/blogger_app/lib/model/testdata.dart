@@ -73,14 +73,15 @@ final videoPost = SimplePost(
   additionalDescription: descriptionForVideo,
 );
 final contestPost = SimplePost(
-  id: 2,
-  header: 'Розыгрыш приставки AppleTV',
-  image: 'assets/appleTv.png',
-  postType: PostType.Contest,
-  createdDate: DateTime.now().add(Duration(hours: -1)),
-  contestFinishDate: DateTime.now().add(Duration(days: 1, minutes: 1)),
-  isContestFinished: false,
-);
+    id: 2,
+    header: 'Розыгрыш приставки AppleTV',
+    image: 'assets/appleTv.png',
+    postType: PostType.Contest,
+    createdDate: DateTime.now().add(Duration(hours: -1)),
+    contestFinishDate: DateTime.now().add(Duration(days: 1, minutes: 1)),
+    isContestFinished: false,
+    content:
+        'Все просто - набираем 1000 подписчиков на канале и разыгрываем приставку');
 
 final contestPost2 = SimplePost(
   id: 3,
