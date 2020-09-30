@@ -80,18 +80,23 @@ final contestPost = SimplePost(
     createdDate: DateTime.now().add(Duration(hours: -1)),
     contestFinishDate: DateTime.now().add(Duration(days: 1, minutes: 1)),
     isContestFinished: false,
+    contestPrize: 'Apple TV',
     content:
         'Все просто - набираем 1000 подписчиков на канале и разыгрываем приставку');
 
 final contestPost2 = SimplePost(
-  id: 3,
-  header: 'Розыгрыш приставки AppleTV 4k',
-  image: 'assets/appleTv.png',
-  postType: PostType.Contest,
-  createdDate: DateTime.now().add(Duration(hours: -5)),
-  contestFinishDate: DateTime.now().add(Duration(days: 2)),
-  isContestFinished: true,
-);
+    id: 3,
+    header: 'Розыгрыш приставки AppleTV 4k',
+    image: 'assets/appleTv.png',
+    postType: PostType.Contest,
+    createdDate: DateTime.now().add(Duration(hours: -5)),
+    contestFinishDate: DateTime.now().add(Duration(days: 2)),
+    isContestFinished: true,
+    contestPrize: 'Apple TV 4k',
+    winnerImageUrl: '',
+    winnerName: 'Александр Сергеевич',
+    content:
+        'Ура! Набрали 1000 подписчиков! Приставка разыграна и скоро попадет к победителю!');
 
 final newsPost1 = SimplePost(
   id: 4,

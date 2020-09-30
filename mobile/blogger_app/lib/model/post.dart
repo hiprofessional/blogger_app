@@ -9,6 +9,9 @@ class SimplePost {
   DateTime contestFinishDate;
   bool isContestFinished;
   String additionalDescription;
+  String winnerName;
+  String winnerImageUrl;
+  String contestPrize;
   SimplePost({
     this.id,
     this.header,
@@ -20,6 +23,9 @@ class SimplePost {
     this.contestFinishDate,
     this.isContestFinished,
     this.additionalDescription,
+    this.winnerName,
+    this.winnerImageUrl,
+    this.contestPrize,
   });
 }
 

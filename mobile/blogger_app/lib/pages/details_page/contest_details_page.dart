@@ -41,7 +41,7 @@ class _ContestDetailsPageState extends State<ContestDetailsPage> {
                   Image(
                     image: AssetImage(args.imageUrl),
                   ),
-                  if (args.isContestFinished)
+                  if (!args.isContestFinished)
                     SizedBox(
                       width: double.infinity,
                       child: CupertinoButton.filled(
@@ -49,7 +49,7 @@ class _ContestDetailsPageState extends State<ContestDetailsPage> {
                         onPressed: () {},
                       ),
                     ),
-                  if (!args.isContestFinished)
+                  if (args.isContestFinished)
                     Column(
                       children: [
                         Row(
