@@ -1,6 +1,7 @@
 import 'package:blogger_app/model/constants.dart';
 import 'package:blogger_app/model/contest_page_constants.dart';
 import 'package:blogger_app/model/details_page_constants.dart';
+import 'package:blogger_app/widget/details/contest_winner_card.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -52,6 +53,9 @@ class _ContestDetailsPageState extends State<ContestDetailsPage> {
                   if (args.isContestFinished)
                     Column(
                       children: [
+                        SizedBox(
+                          height: 15,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -75,6 +79,14 @@ class _ContestDetailsPageState extends State<ContestDetailsPage> {
                             ),
                           ],
                         ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        ContestWinnerCard(
+                          winnerName: 'Timur',
+                          winnerImageUrl: '',
+                          prize: 'Apple tv',
+                        )
                       ],
                     )
                 ],

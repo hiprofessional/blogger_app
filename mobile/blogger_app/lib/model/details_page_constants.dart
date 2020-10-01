@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-const double kSmallBorderRadius = 4;
-
 final kDetailsSubTitleStyle = TextStyle(
   fontSize: 12,
   color: Color(0xff6D6D72),

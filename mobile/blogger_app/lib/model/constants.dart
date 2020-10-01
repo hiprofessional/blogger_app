@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // size
+const double kSmallBorderRadius = 4;
 const double kPaddingSize = 20;
 const double kPaddingVerticalSize = 10;
 const double kBorderRadius = 10;
