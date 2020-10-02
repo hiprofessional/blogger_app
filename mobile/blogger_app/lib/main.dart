@@ -2,6 +2,7 @@
 import 'package:blogger_app/pages/details_page/news_details_page.dart';
 import 'package:blogger_app/pages/main_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,15 +12,33 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return CupertinoApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: CupertinoThemeData(
-//        primaryColor: Color(0xFFFF2D55),
-          ),
+//      theme: AppTheme.darkTheme,
+      theme: CupertinoThemeData(brightness: Brightness.light),
+
+//      CupertinoThemeData(
+////        primaryColor: Color(0xFFFF2D55),
+//          ),
+
       routes: {
         '/': (context) => MainScreen(),
       },
     );
   }
+}
+
+class AppTheme {
+  AppTheme._();
+
+  static final CupertinoThemeData lightTheme = CupertinoThemeData(
+    scaffoldBackgroundColor: Color(0xffaa3333),
+  );
+
+  static final CupertinoThemeData darkTheme = CupertinoThemeData(
+    scaffoldBackgroundColor: Color(0xffaaaaff),
+  );
 }
