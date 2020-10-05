@@ -172,7 +172,15 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                         ),
                         Text(
                           this.title,
-                          style: kVideoCardTitleStyle,
+//                          style: kVideoCardTitleStyle,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: CupertinoTheme.of(context)
+                                .textTheme
+                                .textStyle
+                                .color,
+                          ),
                         ),
                         SizedBox(
                           height: kPaddingVerticalSize,
@@ -200,11 +208,14 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
                           margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
                         ),
                         'p': Style(
-                          margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                          fontSize: FontSize(
-                              16 * this.textScaleFactors[this.currentScaleId]),
-                          textAlign: TextAlign.justify,
-                        ),
+                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                            fontSize: FontSize(16 *
+                                this.textScaleFactors[this.currentScaleId]),
+                            textAlign: TextAlign.justify,
+                            color: CupertinoTheme.of(context)
+                                .textTheme
+                                .textStyle
+                                .color),
                         'img': Style(
                           margin:
                               EdgeInsets.symmetric(horizontal: 0, vertical: 10),

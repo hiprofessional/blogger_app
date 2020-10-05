@@ -16,10 +16,11 @@ class HeaderListItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                this.header,
-                style: kHeadlineStyle,
-              ),
+              Text(this.header,
+//                style: kHeadlineStyle,
+                  style: CupertinoTheme.of(context)
+                      .textTheme
+                      .navLargeTitleTextStyle),
               CircleAvatar()
             ],
           ),

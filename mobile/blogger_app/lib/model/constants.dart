@@ -22,10 +22,10 @@ const EdgeInsetsGeometry kPaddingForDivider =
     EdgeInsets.fromLTRB(0, kPaddingVerticalSize, 0, 5);
 
 // text style
-const kHeadlineStyle = TextStyle(
-  fontSize: 34,
-  fontWeight: FontWeight.bold,
-);
+//const kHeadlineStyle = TextStyle(
+//  fontSize: 34,
+//  fontWeight: FontWeight.bold,
+//);
 
 const textShadow = Shadow(
   blurRadius: 1,

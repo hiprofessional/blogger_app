@@ -83,10 +83,13 @@ class _VideoDetailsPageState extends State<VideoDetailsPage> {
                           margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
                         ),
                         'p': Style(
-                          margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                          fontSize: FontSize(16),
-                          textAlign: TextAlign.justify,
-                        ),
+                            margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            fontSize: FontSize(16),
+                            textAlign: TextAlign.justify,
+                            color: CupertinoTheme.of(context)
+                                .textTheme
+                                .textStyle
+                                .color),
                       },
                       onLinkTap: (url) {
                         print(url);

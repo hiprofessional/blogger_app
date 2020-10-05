@@ -15,7 +15,14 @@ class ContestWinnerCard extends StatelessWidget {
     return Container(
       padding: kPaddingForWinnerCard,
       decoration: ShapeDecoration(
-        color: Colors.white,
+        color: CupertinoTheme.of(context)
+            .copyWith(
+              scaffoldBackgroundColor:
+                  CupertinoTheme.brightnessOf(context) == Brightness.dark
+                      ? Color(0xff333333)
+                      : CupertinoTheme.of(context).scaffoldBackgroundColor,
+            )
+            .scaffoldBackgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(kSmallBorderRadius),
@@ -43,7 +50,9 @@ class ContestWinnerCard extends StatelessWidget {
             children: [
               Text(
                 this.winnerName,
-                style: kWinnerNameStyle,
+                style: kWinnerNameStyle.copyWith(
+                    color:
+                        CupertinoTheme.of(context).textTheme.textStyle.color),
               ),
               Text(
                 this.prize,

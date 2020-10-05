@@ -4,6 +4,7 @@ import 'package:blogger_app/model/details_page_constants.dart';
 import 'package:blogger_app/widget/details/contest_winner_card.dart';
 import 'package:blogger_app/widget/details_page_argument.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ContestDetailsPage extends StatefulWidget {
   @override
@@ -30,32 +31,44 @@ class _ContestDetailsPageState extends State<ContestDetailsPage> {
                   ),
                   Text(
                     args.title,
-                    style: kContestTitleStyle,
+                    style: kContestTitleStyle.copyWith(
+                        color: CupertinoTheme.of(context)
+                            .textTheme
+                            .navLargeTitleTextStyle
+                            .color),
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   Text(
                     args.content,
-                    style: kContestDetailsStyle,
+                    style: CupertinoTheme.of(context).textTheme.textStyle,
                   ),
-                  Image(
-                    image: AssetImage(args.imageUrl),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    color: Colors.white,
+                    child: Image(
+                      image: AssetImage(args.imageUrl),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
                   ),
                   if (!args.isContestFinished)
                     SizedBox(
                       width: double.infinity,
                       child: CupertinoButton.filled(
-                        child: Text('Принять участие'),
+                        child: Text(
+                          'Принять участие',
+                        ),
                         onPressed: () {},
                       ),
                     ),
                   if (args.isContestFinished)
                     Column(
                       children: [
-                        SizedBox(
-                          height: 15,
-                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -65,11 +78,19 @@ class _ContestDetailsPageState extends State<ContestDetailsPage> {
                               children: [
                                 Text(
                                   'Приняло участие',
-                                  style: kContestParticipateTitleStyle,
+                                  style: kContestParticipateTitleStyle.copyWith(
+                                      color: CupertinoTheme.of(context)
+                                          .textTheme
+                                          .textStyle
+                                          .color),
                                 ),
                                 Text(
                                   '567',
-                                  style: kContestParticipateCountStyle,
+                                  style: kContestParticipateCountStyle.copyWith(
+                                      color: CupertinoTheme.of(context)
+                                          .textTheme
+                                          .textStyle
+                                          .color),
                                 ),
                               ],
                             ),
