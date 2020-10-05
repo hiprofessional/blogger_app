@@ -17,28 +17,9 @@ class MyApp extends StatelessWidget {
     return CupertinoApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-//      theme: AppTheme.darkTheme,
-      theme: CupertinoThemeData(brightness: Brightness.light),
-
-//      CupertinoThemeData(
-////        primaryColor: Color(0xFFFF2D55),
-//          ),
-
       routes: {
         '/': (context) => MainScreen(),
       },
     );
   }
-}
-
-class AppTheme {
-  AppTheme._();
-
-  static final CupertinoThemeData lightTheme = CupertinoThemeData(
-    scaffoldBackgroundColor: Color(0xffaa3333),
-  );
-
-  static final CupertinoThemeData darkTheme = CupertinoThemeData(
-    scaffoldBackgroundColor: Color(0xffaaaaff),
-  );
 }
